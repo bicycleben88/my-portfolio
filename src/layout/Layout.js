@@ -1,12 +1,11 @@
 import React from "react"
-import {RedH1} from "../styles/mainstyles"
+import Header from "../components/Header"
+import "../styles/global.css"
 
 const Layout = props => {
   return (
     <>
-      <header>
-        <RedH1>Header</RedH1>
-      </header>
+      <Header />
       <main>{props.children}</main>
       <footer>
         <h1>Footer</h1>

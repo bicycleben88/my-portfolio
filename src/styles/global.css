@@ -1,0 +1,8 @@
+main {
+  width: 70%;
+  margin: 0 auto;
+}
+
+a:hover {
+  text-decoration: none;
+}

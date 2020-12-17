@@ -7,13 +7,22 @@ export default function Blog({ data }) {
 
   return (
     <Layout>
-      <h1>My blog posts</h1>
+      <h1>Projects I want to share with you</h1>
 
       {posts.map(post => (
         <article key={post.id}>
-          <Link to={post.fields.slug}><h2>{post.frontmatter.title}</h2></Link>
-          <small>{post.frontmatter.author}, {post.frontmatter.date}</small>
-          <p>{post.excerpt}</p>
+          <Link to={post.fields.slug}>
+            <h2>
+              {post.frontmatter.title}{" "}
+              <span style={{ fontSize: "small", color: "black" }}>
+                {post.frontmatter.date}
+              </span>
+            </h2>
+          </Link>
+          <h4>
+            <a href={post.frontmatter.url}>Live Site</a>
+          </h4>
+          <p>Built With: {post.frontmatter.primaryTech}</p>
         </article>
       ))}
     </Layout>
@@ -28,12 +37,14 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(fromNow: true)
+          date(formatString: "MMMM Do, YYYY")
           title
-          author
+          url
+          primaryTech
         }
         excerpt
         id
       }
     }
-  }`
+  }
+`
