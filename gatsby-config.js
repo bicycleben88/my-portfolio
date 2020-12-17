@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: "Benjamin A. Higginbotham",
-    description: "I ride bikes in Lycra. I write code in JavaScript",
+    description: "I ride bikes in Lycra. I write code in JavaScript.",
   },
   plugins: [
     {
@@ -16,6 +16,12 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     {
