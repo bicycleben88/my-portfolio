@@ -7,7 +7,7 @@ const HeaderStyles = styled.div`
   margin: 5px auto;
   div {
     flex: 1;
-    margin-left: 5px;
+    margin-left: 10px;
   }
   img {
     box-shadow: 0px 2px 8px 1px black;

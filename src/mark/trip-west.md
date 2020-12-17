@@ -2,6 +2,8 @@
 title: Another Trip Out West
 author: Higginbotham, a Ben
 date: 2020-09-13
+url: https://another-trip-out-west.vercel.app/
+primaryTech: JavaScript ES6, jQuery, HTML5 & CSS3
 ---
 
 # Another Trip Out West

@@ -2,6 +2,8 @@
 title: Creepy Costumes
 author: Higginbotham, a Ben
 date: 2020-11-17
+url: https://costumes-app-client.vercel.app/
+primaryTech: React.js & Node.js
 ---
 
 # Creepy Costumes

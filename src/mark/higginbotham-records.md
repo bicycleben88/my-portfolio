@@ -2,6 +2,8 @@
 title: Higginbotham Records
 author: Higginbotham, a Ben
 date: 2020-10-15
+url: https://higginbotham-records.herokuapp.com/
+primaryTech: Node.js & Express
 ---
 
 # Higginbotham Records

@@ -2,9 +2,9 @@
 title: Ben's Bikes
 author: Higginbotham, a Ben
 date: 2020-12-10
+url: https://bens-bikes-frontend.vercel.app/
+primaryTech: React.js & Ruby on Rails
 ---
-
-# Ben's Bikes
 
 > ### Live Earls:
 >
