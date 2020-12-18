@@ -1,9 +1,15 @@
-## Readme
+# Porfolio
 
-- Markdown files are read out of the mark folder and injected into the MarkPage component.
+![Landing Page of Portfolio](https://i.imgur.com/zDXMqX8.png)
 
-- styled components is installed, make your styled components in the styles folder
+## Technologies Used:
 
-- images are being read in the filesystem from the images folder
+> - Gatsby.js
+> - JavaScript
+> - CSS Components
 
+## MVP:
 
+> - Basic Markdown Blog
+> - Index page with all blogs
+> - Show page with full markdown file of blog post
