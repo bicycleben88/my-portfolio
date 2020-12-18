@@ -3,14 +3,14 @@ title: Ben's Bikes
 author: Higginbotham, a Ben
 date: 2020-12-10
 url: https://bens-bikes-frontend.vercel.app/
-primaryTech: React.js & Ruby on Rails
+primaryTech: React.js, Ruby on Rails & PostgresQL
 ---
 
-> ### Live Earls:
+> ### Git Urls:
 >
-> [bens-bikes-frontend.vercel.app](https://bens-bikes-frontend.vercel.app/)
+> [Front End](https://github.com/bicycleben88/bens_bikes_frontend)
 >
-> [bens-bikes-backend.herokuapp.com](https://bens-bikes-backend.herokuapp.com/items)
+> [Back End](https://github.com/bicycleben88/bens_bikes_backend)
 
 ![Landing page to Ben's Bikes](https://i.imgur.com/Kt3juRq.jpg)
 

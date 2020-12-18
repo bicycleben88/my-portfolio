@@ -8,7 +8,6 @@ export default function Blog({ data }) {
   return (
     <Layout>
       <h1>Projects I want to share with you</h1>
-
       {posts.map(post => (
         <article key={post.id}>
           <Link to={post.fields.slug}>
@@ -42,8 +41,6 @@ export const pageQuery = graphql`
           url
           primaryTech
         }
-        excerpt
-        id
       }
     }
   }
