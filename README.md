@@ -1,4 +1,4 @@
-# Porfolio
+# Portfolio
 
 ![Landing Page of Portfolio](https://i.imgur.com/zDXMqX8.png)
 
