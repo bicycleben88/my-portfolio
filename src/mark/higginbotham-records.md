@@ -3,14 +3,12 @@ title: Higginbotham Records
 author: Higginbotham, a Ben
 date: 2020-10-15
 url: https://higginbotham-records.herokuapp.com/
-primaryTech: Node.js & Express
+primaryTech: Node.js, Express & MongoDB
 ---
 
-# Higginbotham Records
-
-> ### Live Earl:
+> ### Git Url:
 >
-> https://higginbotham-records.herokuapp.com/
+> https://github.com/bicycleben88/higginbotham-records
 
 ![Landing page to Higginbotham Records](https://i.imgur.com/uKrGuF2.png)
 

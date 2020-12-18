@@ -6,11 +6,9 @@ url: https://another-trip-out-west.vercel.app/
 primaryTech: JavaScript ES6, jQuery, HTML5 & CSS3
 ---
 
-# Another Trip Out West
-
-> ### Live Earl:
+> ### Git Url:
 >
-> https://another-trip-out-west.vercel.app/
+> https://github.com/bicycleben88/another-trip-west
 
 ![Landing page to Another Trip Out West](https://i.imgur.com/2z4JlUy.png)
 

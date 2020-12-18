@@ -3,16 +3,14 @@ title: Creepy Costumes
 author: Higginbotham, a Ben
 date: 2020-11-17
 url: https://costumes-app-client.vercel.app/
-primaryTech: React.js & Node.js
+primaryTech: React.js, Node.js & MongoDB
 ---
 
-# Creepy Costumes
-
-> ### Live Earls:
+> ### Git Urls:
 >
-> [costumes-app-client.vercel.app](https://costumes-app-client.vercel.app/)
+> [Front End](https://github.com/bicycleben88/costumes_app_client)
 >
-> [costumes-api.herokuapp.com](https://costumes-api.herokuapp.com/items)
+> [Back End](https://github.com/bicycleben88/costumes_api)
 
 ![Landing page to Creepy Costumes](https://i.imgur.com/i70YmrP.png)
 
