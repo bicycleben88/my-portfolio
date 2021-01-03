@@ -12,6 +12,8 @@ primaryTech: React.js, Ruby on Rails & PostgresQL
 >
 > [Back End](https://github.com/bicycleben88/bens_bikes_backend)
 
+## [Video Walkthru](https://www.youtube.com/watch?v=NjY_tzMZuSY)
+
 ![Landing page to Ben's Bikes](https://i.imgur.com/Kt3juRq.jpg)
 
 ## Technologies Used
