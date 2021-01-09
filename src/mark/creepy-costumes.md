@@ -12,6 +12,8 @@ primaryTech: React.js, Node.js & MongoDB
 >
 > [Back End](https://github.com/bicycleben88/costumes_api)
 
+## [Video Walkthru](https://www.youtube.com/watch?v=bFWGuoc5kR8)
+
 ![Landing page to Creepy Costumes](https://i.imgur.com/5C3nDAZ.png)
 
 ## Technologies Used
