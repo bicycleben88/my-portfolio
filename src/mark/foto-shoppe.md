@@ -10,7 +10,7 @@ primaryTech: Next.js, Prisma, React-Query & PostgresQL
 >
 > https://github.com/bicycleben88/photo_album
 
-## [Video Walkthru]("https://www.youtube.com/watch?v=_cJJg8vUk2Y")
+## [Video Walkthru](https://www.youtube.com/watch?v=_cJJg8vUk2Y)
 
 ![Landing Page to Foto Shoppe](https://i.imgur.com/GQwzOnG.png)
 
