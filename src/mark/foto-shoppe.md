@@ -1,9 +1,10 @@
 ---
 title: Foto Shoppe
+about: Full Stack app to create, read, update & delete (CRUD) photo albums
 author: Higginbotham, a Ben
 date: 2020-12-30
 url: https://cigarette-camus-cat.herokuapp.com/
-primaryTech: Next.js, Prisma, React-Query & PostgresQL
+primaryTech: Next.js - JavaScript framework w/ built-in API & dynamic pages| Prisma - ORM to comminicate w/ database (postgreSQL) | React-Query - React tool to manage server-state w/ built-in & custom hooks| Next-Auth - Authentication tech using OAuth & Sessions| Click link for full tech specs & my personal video walkthru of the code!
 ---
 
 > ### Git:
