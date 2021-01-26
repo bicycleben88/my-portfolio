@@ -1,9 +1,10 @@
 ---
 title: Another Trip Out West
 author: Higginbotham, a Ben
+about: Front End static web page taking users on a virtual bicycle tour to Denver
 date: 2020-09-13
 url: https://another-trip-out-west.vercel.app/
-primaryTech: JavaScript ES6, jQuery, HTML5 & CSS3
+primaryTech: jQuery - JavaScript framework for DOM manipulation| HTML5 - Markup language w/ semantic tags to render UI| CSS3 - Style Sheet to add color & design to HTML tags| Click link for full tech specs
 ---
 
 > ### Git Url:
