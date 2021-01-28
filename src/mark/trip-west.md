@@ -3,15 +3,15 @@ title: Another Trip Out West
 author: Higginbotham, a Ben
 about: Front End static web page taking users on a virtual bicycle tour to Denver
 date: 2020-09-13
-url: https://another-trip-out-west.vercel.app/
+url: https://trip-out-west-frontend.vercel.app/
 primaryTech: jQuery - JavaScript framework for DOM manipulation| HTML5 - Markup language w/ semantic tags to render UI| CSS3 - Style Sheet to add color & design to HTML tags| Click link for full tech specs
 ---
 
 > ### Git Url:
 >
-> https://github.com/bicycleben88/another-trip-west
+> https://github.com/bicycleben88/trip-out-west-frontend
 
-![Landing page to Another Trip Out West](https://i.imgur.com/2z4JlUy.png)
+![Landing page to Another Trip Out West](https://i.imgur.com/GrSgGIi.png)
 
 ## Technologies used:
 
