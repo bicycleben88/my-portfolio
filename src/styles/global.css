@@ -1,4 +1,4 @@
-:root {
+* {
   box-sizing: border-box;
 }
 body {
@@ -23,6 +23,12 @@ article {
 }
 article h2 {
   margin-top: 1px;
+}
+.clocks {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px auto;
+  position: relative;
 }
 @media (max-width: 500px) {
   main {
