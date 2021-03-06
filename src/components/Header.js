@@ -1,5 +1,5 @@
 import React from "react"
-import HeaderStyles from "../styles/headerstyles"
+import HeaderStyles from "../styles/headerStyles"
 import { Link } from "gatsby"
 
 const Header = props => {
