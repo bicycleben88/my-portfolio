@@ -10,7 +10,7 @@ export default function Blog({ data }) {
       {posts.map(post => {
         const techArray = post.frontmatter.primaryTech.split("| ")
         return (
-          <article key={post.id}>
+          <article key={post.frontmatter.title}>
             <Link to={post.fields.slug}>
               <h2>
                 {post.frontmatter.title}{" "}
@@ -23,10 +23,9 @@ export default function Blog({ data }) {
             <h4>
               <a href={post.frontmatter.url}>Live Site</a>
             </h4>
-            {/* <p>Built With: {post.frontmatter.primaryTech}</p> */}
             <ul>
               {techArray.map(tech => (
-                <li>{tech}</li>
+                <li key={techArray.indexOf(tech)}>{tech}</li>
               ))}
             </ul>
           </article>
