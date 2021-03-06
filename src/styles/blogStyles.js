@@ -16,10 +16,9 @@ const BlogStyles = styled.section`
   article h2 {
     margin-top: 1px;
   }
-  /* #blogs {
-    transform: perspective(500px) rotateY(calc(var(--tilt) * 1deg));
-    transition: transform 0.3s;
-  } */
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `
 
 export default BlogStyles
