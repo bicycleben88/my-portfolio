@@ -3,33 +3,16 @@ import { graphql, Link } from "gatsby"
 import Layout from "../layout/Layout"
 import Clocks from "../components/Clocks"
 import BlogStyles from "../styles/blogStyles"
+import VarsBar from "../components/VarsBar"
 
 export default function Blog({ data }) {
-  const [tilt, setTilt] = React.useState(0)
-
-  function handleChange(e) {
-    setTilt(e.target.value)
-  }
-
-  console.log(tilt)
-  document.documentElement.style.setProperty(`--tilt`, tilt)
   const { posts } = data.blog
   return (
     <Layout>
       <Clocks />
       <BlogStyles>
         <h1>Projects I want to share with you</h1>
-        <label>
-          Tilt{" "}
-          <input
-            type="range"
-            value={tilt}
-            name="tilt"
-            min="-10"
-            max="0"
-            onChange={handleChange}
-          />
-        </label>
+        <VarsBar />
         {posts.map(post => {
           const techArray = post.frontmatter.primaryTech.split("| ")
           return (
