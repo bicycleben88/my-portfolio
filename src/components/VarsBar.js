@@ -18,8 +18,6 @@ export default function VarsBar() {
       `--${e.target.name}`,
       cssVars[e.target.name]
     )
-    console.log(e.target.name)
-    console.log(cssVars[e.target.name])
   }
 
   return (
