@@ -11,6 +11,8 @@ primaryTech: Node.js - JavaScript framework to employ MVC architecture| Express 
 
 This is a Full Stack application to post your record collection. It's built with the Mongo(DB/ose), Express, React & Node (MERN) stack. It has two full CRUD features, a user account & a record profile. It is styled with Bootstrap, featuring a mobile-first design. Lastly, you can play the drums with your keyboard and I hope you think it's as cool as I do.
 
+### [Video Tour](https://www.youtube.com/playlist?list=PLjYC3ZkfhqCqA8ZLeQ1uTdE46RM7rrxWS)
+
 > ### Git Url
 >
 > https://github.com/bicycleben88/higginbotham-records
