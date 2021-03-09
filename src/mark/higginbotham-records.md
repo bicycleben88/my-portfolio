@@ -39,7 +39,7 @@ Controllers
 
 - define the routes associated with particular model
 - follow RESTful convention (i.e. HTTP verb + endpoint = specific piece of data)
-- ![record controller](https://imgur.com/PaWtvMy.png)
+- ![record controller](https://i.imgur.com/U56M5A5.png)
 
 Views
 
@@ -69,7 +69,7 @@ Views
     playAudio()
 
             - grab the audio file associated with the keyboard key that triggered the event
-            - if there's an audio file, then play the audio file from the beggining
+            - if there's an audio file, then play it from the beggining
 
     - ![play audio function](https://i.imgur.com/fuy2lp5.png)
 
