@@ -2,6 +2,12 @@
 
 This is a basic markdown blog built with Gatsby.js. It uses React components styled with CSS Styled-Components & uses graphQL to query for markdown files within a local directory.
 
+> ## Live Earl
+>
+> https://higginbotham.fun
+
+## [Video Tour](https://www.youtube.com/playlist?list=PLjYC3ZkfhqCrW7ZReWiaeS47UHlwkku1R)
+
 ![Landing Page of Portfolio](https://i.imgur.com/zDXMqX8.png)
 
 ## Technologies Used:
