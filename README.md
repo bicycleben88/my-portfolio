@@ -19,7 +19,7 @@ This is a basic markdown blog built with Gatsby.js. It uses React components sty
 
 ## Features & Functions
 
-### Clock
+#### Clock
 
 > - Create Clocks component
 >   - render Clock components
@@ -35,6 +35,20 @@ This is a basic markdown blog built with Gatsby.js. It uses React components sty
 >   - call all three functions inside of a useEffect hook to get the time when the component first loads
 >   - pass the css variables to the hands as inline styling
 > - ![clock component](src/images/clock.png)
+
+#### Css Variables Bar
+
+> - Create CSS variables in a high level element like root or html & pass them to an element
+> - ![css variables](src/images/css-vars.png)
+> - Create VarsBar component
+>   - create state to hold values for css variables
+> - ![css state](src/images/css-state.png)
+>   - set values of \<input> to state, name them w/ the name of the css variable & use handleChange() when they change
+> - ![input tag](src/images/css-input.png)
+>   - handleChange()
+>     - set state to value from \<input> tags
+>     - use the tag's name & value to set the css variable
+> - ![handle change function](src/images/css-handle-change.png)
 
 ## Source
 
