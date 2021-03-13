@@ -6,6 +6,7 @@ date: 2020-12-30
 url: https://cigarette-camus-cat.herokuapp.com/
 primaryTech: Next.js - JavaScript framework w/ built-in API & dynamic pages| Prisma - ORM to comminicate w/ database (postgreSQL) | React-Query - React tool to manage server-state w/ built-in & custom hooks| Next-Auth - Authentication tech using OAuth & Sessions| Click link for full tech specs & my personal video walkthru of the code!
 ---
+## [Video Walkthru](https://www.youtube.com/playlist?list=PLjYC3ZkfhqCpkFUDCzs1MjbFvuSSRTHvL)
 
 ![Landing Page to Foto Shoppe](https://i.imgur.com/pmpJTiO.png)
 
