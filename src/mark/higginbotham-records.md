@@ -81,9 +81,49 @@ Views
 
     - ![remove class function](https://i.imgur.com/RTQZnZj.png)
 
+### Type Ahead Search Bar
+
+1.  Create API end point to get list of album names & artists
+    - Tell server to use API router
+    - ![API server](https://i.imgur.com/p73CVzn.png)
+1.  Create API controller
+    - Access Record model
+    - Use mongoose to find all Records & return JSON
+    - ![API controller](https://i.imgur.com/RBsNvwg.png)
+1.  JavaScript
+
+    - Grab DOM elements & add event listeners
+    - ![type ahead dom elements](https://i.imgur.com/4NzwMdb.png)
+    - Make fetch request to API & get records
+    - ![api fetch request](https://i.imgur.com/KfoGSTS.png)
+
+    findResults()
+
+    > create RegExp object from search term
+    >
+    > filter thru records to find matches
+    >
+    > ![findResults function](https://i.imgur.com/BxQtALj.png)
+
+    displayResults()
+
+    > invoke findResults using user input
+    >
+    > only handle events triggered by the keyboard
+    >
+    > map thru array of matching albums & artists
+    >
+    > - display nothing if search bar is empty
+    > - create RegExp from user input
+    > - add class to highlight user input
+    > - create \<li> that links to show page of record
+    >   add \<li> to the DOM
+    >   ![displayResults function](https://i.imgur.com/9vaUUsR.png)
+
 ## Notes
 
 > - RESTful - “Representational State Transfer”. It is a set of rules that developers follow when they create their API. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL
+> - Regular Expression (Regex) - A regular expression is a sequence of characters that forms a search pattern. The search pattern can be used for text search and text replace operations.
 
 ## Contact
 
