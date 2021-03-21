@@ -86,6 +86,32 @@ This is a front end e-commerce web application built with React. Users can creat
 > 1. set token in globalState to null
 >
 > ![log out button](https://i.imgur.com/qY7Xmyq.png)
+>
+> ### Cart
+>
+> use custom hook to open & close the cart (see above)
+>
+> make api request to get the user's cart
+>
+> useEffect to get cart when the component mounts & anytime it's opened
+>
+> ![fetch request & useEffecthook](https://i.imgur.com/qHXR4EV.png)
+>
+> loop thru user's cart & return a new \<CartItem> w/ each item in it
+>
+> ![display cart items](https://i.imgur.com/inaqhHn.png)
+>
+> invoke deleteCartItem() to delete item from cart
+>
+> - use id from cartItem to access correct API endpoint
+>
+> addToCart()
+>
+> - fetch post request to /cartitems API endpoint
+> - headers include JWT token & content-type
+> - send user id & item id in the request body
+>
+> ![add to cart function](https://i.imgur.com/245G9Wh.png)
 
 ## Notes
 
