@@ -146,6 +146,14 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > ![application.rb add env variables](https://i.imgur.com/eQr0fkr.png)
 >
+> In orders_controllers use the PaymentIntents module to create a new payment, passing the Stipe token from the request body
+>
+> ![payment intent](https://i.imgur.com/V3smX7b.png)
+>
+> update order to include the charge
+>
+> ![update order with stripe payment](https://i.imgur.com/sGTHfrq.png)
+>
 > #### Stripe w/ React front end
 >
 > Add .env.local file to root directory & add it to .gitignore
