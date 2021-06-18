@@ -45,7 +45,10 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > use createContext() to create Provider component
 >
-> ![local state provider](https://i.imgur.com/XtDjpIt.png)
+```
+ const LocalStateContext = createContext();
+ const LocalStateProvider= LocalStateContext.Provider;
+```
 >
 > create higher level component
 >
