@@ -44,67 +44,64 @@ This is a front end e-commerce web application built with React. Users can creat
 > #### useCart()
 >
 > use createContext() to create Provider component
-
-```
- const LocalStateContext = createContext();
- const LocalStateProvider= LocalStateContext.Provider;
-```
-
+>
+> ```
+> const LocalStateContext = createContext();
+> const LocalStateProvider= LocalStateContext.Provider;
+> ```
+>
 > create higher level component
 >
 > - add state & functions
 > - return Provider component w/ all values that will be passed down as props to child components
-
-```
-const CartStateProvider = ({ children }) => {
-  const [cartOpen, setCartOpen] = useState(false);
-
-  const toggleCart = () => {
-    setCartOpen(!cartOpen);
-  };
-
-  const closeCart = () => {
-    setCartOpen(false);
-  };
-
-  const openCart = () => {
-    setCartOpen(true);
-  };
-
-  return (
-    <LocalStateProvider
-      value={{
-        cartOpen,
-        setCartOpen,
-        closeCart,
-        openCart,
-        toggleCart,
-      }}
-    >
-      {children}
-    </LocalStateProvider>
-  );
-};
-
-
-export { CartStateProvider, useCart };
-```
-
+>
+> ```
+> const CartStateProvider = ({ children }) => {
+>  const [cartOpen, setCartOpen] = useState(false);
+>
+> const toggleCart = () => {
+>    setCartOpen(!cartOpen);
+>  };
+>
+>  const closeCart = () => {
+>   setCartOpen(false);
+>  };
+>
+>  const openCart = () => {
+>    setCartOpen(true);
+>  };
+>
+>  return (
+>    <LocalStateProvider
+>      value={{
+>        cartOpen,
+>        setCartOpen,
+>        closeCart,
+>        openCart,
+>        toggleCart,
+>      }}
+>    >
+>      {children}
+>    </LocalStateProvider>
+>  );
+> };
+> ```
+>
 > create custom hook using useContext()
-
-```
-const useCart = () => {
-  const all = useContext(LocalStateContext);
-  return all;
-};
-```
-
-> ![use cart hook](https://i.imgur.com/WRMtv1D.png)
+>
+> ```
+> const useCart = () => {
+>  const all = useContext(LocalStateContext);
+>  return all;
+> };
+> ```
 >
 > export hook & provider component
 >
-> ![export](https://i.imgur.com/4vwOCVi.png)
-
+> ```
+> export { CartStateProvider, useCart };
+> ```
+>
 > ## Store JWT Tokens in Local Storage
 >
 > Keeps a user logged in if page is reloaded
