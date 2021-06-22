@@ -86,16 +86,19 @@ const CartStateProvider = ({ children }) => {
   );
 };
 
-const useCart = () => {
-  const all = useContext(LocalStateContext);
-  return all;
-};
 
 export { CartStateProvider, useCart };
 ```
 
 > create custom hook using useContext()
->
+
+```
+const useCart = () => {
+  const all = useContext(LocalStateContext);
+  return all;
+};
+```
+
 > ![use cart hook](https://i.imgur.com/WRMtv1D.png)
 >
 > export hook & provider component
