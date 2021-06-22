@@ -44,19 +44,56 @@ This is a front end e-commerce web application built with React. Users can creat
 > #### useCart()
 >
 > use createContext() to create Provider component
->
+
 ```
  const LocalStateContext = createContext();
  const LocalStateProvider= LocalStateContext.Provider;
 ```
->
+
 > create higher level component
 >
 > - add state & functions
 > - return Provider component w/ all values that will be passed down as props to child components
->
-> ![cart state provider](https://i.imgur.com/ymSXt0m.png)
->
+
+```
+const CartStateProvider = ({ children }) => {
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
+  };
+
+  const closeCart = () => {
+    setCartOpen(false);
+  };
+
+  const openCart = () => {
+    setCartOpen(true);
+  };
+
+  return (
+    <LocalStateProvider
+      value={{
+        cartOpen,
+        setCartOpen,
+        closeCart,
+        openCart,
+        toggleCart,
+      }}
+    >
+      {children}
+    </LocalStateProvider>
+  );
+};
+
+const useCart = () => {
+  const all = useContext(LocalStateContext);
+  return all;
+};
+
+export { CartStateProvider, useCart };
+```
+
 > create custom hook using useContext()
 >
 > ![use cart hook](https://i.imgur.com/WRMtv1D.png)
