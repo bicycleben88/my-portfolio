@@ -2,7 +2,7 @@
 title: Ben's Bikes
 about: Front End e-commerce app to purchase bikes and bike gear
 author: Higginbotham, a Ben
-date: 2020-12-10
+date: 2021-01-10
 url: https://bens-bikes-frontend.vercel.app/
 primaryTech: React.js - JavaScript framework to manage data in state & to employ JS methods and functions| Ruby on Rails - ORM to scaffold back end API| CSS-Components - Styling tool to add custom design to components| Click link for full tech specs & my personal video walkthru of the code!
 ---
