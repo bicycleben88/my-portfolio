@@ -202,8 +202,23 @@ This is a front end e-commerce web application built with React. Users can creat
 > - headers include JWT token & content-type
 > - send user id & item id in the request body
 >
-> ![add to cart function](https://i.imgur.com/245G9Wh.png)
-
+> ```
+>  const addToCart = async () => {
+>    const response = await fetch(`${url}/cartitems`, {
+>      method: "POST",
+>      headers: {
+>        "content-type": "application/json",
+>        Authorization: `bearer: ${token}`,
+>      },
+>      body: JSON.stringify({
+>        item_id: id,
+>        user_id: userId,
+>      }),
+>    });
+>    const data = await response.json();
+>  };
+> ```
+>
 > ## Add (Multiple) Cart Items
 >
 > handle POST request from front end to /cartitems
