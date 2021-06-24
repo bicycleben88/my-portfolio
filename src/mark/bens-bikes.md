@@ -177,7 +177,20 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > loop thru user's cart & return a new \<CartItem> w/ each item in it
 >
-> ![display cart items](https://i.imgur.com/inaqhHn.png)
+> ```
+>    <ul>
+>        user.cartitems &&
+>            user.cartitems.map((cartItem) => {
+>              return (
+>                <CartItem
+>                  item={cartItem}
+>                  key={cartItem.id}
+>                  handleDelete={deleteCartItem}
+>                />
+>              );
+>            })}
+>    </ul>
+> ```
 >
 > invoke deleteCartItem() to delete item from cart
 >
