@@ -111,22 +111,45 @@ This is a front end e-commerce web application built with React. Users can creat
 > 1. will return a JWT token
 > 1. save token in local storage thru the window object
 >
-> ![set item local storage](https://i.imgur.com/2SKQmfh.png)
+> ```
+> await window.localStorage.setItem("token", JSON.stringify(data.token));
+> ```
 >
 > In App.js
 >
 > 1. look for token in local storage
 > 1. add it to globalState
 >
-> ![app global state](https://i.imgur.com/XaCXrc0.png)
+> ```
+>  React.useEffect(() => {
+>    const token = JSON.parse(window.localStorage.getItem("token"));
+>    if (token) {
+>      setGlobalState({ ...globalState, token: token });
+>    }
+>  }, []);
+> ```
 >
 > To log out
 >
 > 1. remove token from local storage
 > 1. set token in globalState to null
 >
-> ![log out button](https://i.imgur.com/qY7Xmyq.png)
-
+> ```
+>  const logOut = () => {
+>    return (
+>      <Link
+>        to="/"
+>        onClick={() => {
+>          setGlobalState({ ...globalState, token: null });
+>          window.localStorage.removeItem("token");
+>        }}
+>      >
+>        Log Out
+>      </Link>
+>    );
+>  };
+> ```
+>
 > ## Cart
 >
 > use custom hook to open & close the cart (see above)
