@@ -158,7 +158,22 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > useEffect to get cart when the component mounts & anytime it's opened
 >
-> ![fetch request & useEffecthook](https://i.imgur.com/qHXR4EV.png)
+> ```
+>  const getUser = async () => {
+>    const response = await fetch(`${url}/auto_login`, {
+>      headers: {
+>        "Content-Type": "application/JSON",
+>        Authorization: `bearer: ${token}`,
+>      },
+>    });
+>    const data = await response.json();
+>    await setUser(data);
+>  };
+>
+>  React.useEffect(() => {
+>    getUser();
+>  }, [cartOpen]);
+> ```
 >
 > loop thru user's cart & return a new \<CartItem> w/ each item in it
 >
