@@ -229,8 +229,24 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > otherwise, create a new cart item with the params outlined in cartitem_params
 >
-> ![create cart  item](https://i.imgur.com/Pn1brh5.png)
-
+> ```
+>  def create
+>    if
+>      Cartitem.find_by(item_id: params[:item_id].to_i)
+>      @cartitem = Cartitem.find_by(item_id: params[:item_id].to_i)
+>      @cartitem.update(quantity: @cartitem.quantity + 1)
+>      render json: @cartitem
+>    else
+>      @cartitem = Cartitem.new(cartitem_params)
+>      if @cartitem.save
+>        render json: @cartitem, status: :created, location: @cartitem
+>      else
+>        render json: @cartitem.errors, status: :unprocessable_entity
+>      end
+>    end
+> end
+> ```
+>
 > ## Stripe Credit Card Payments
 >
 > Create Stripe account to get API keys
