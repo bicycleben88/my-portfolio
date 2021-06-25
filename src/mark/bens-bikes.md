@@ -283,11 +283,25 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > In application.rb add the following code before loading default config
 >
-> ![application.rb add env variables](https://i.imgur.com/eQr0fkr.png)
+> ```
+>    config.before_configuration do
+>      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+>      YAML.load(File.open(env_file)).each do |key, value|
+>        ENV[key.to_s] = value
+>      end if File.exists?(env_file)
+>    end
+> ```
 >
 > In orders_controllers use the PaymentIntents module to create a new payment, passing the Stipe token from the request body
 >
-> ![payment intent](https://i.imgur.com/V3smX7b.png)
+> ```
+> @charge = Stripe::PaymentIntent.create({
+>        amount: @order.total,
+>        currency: "USD",
+>        confirm: true,
+>        payment_method: params[:stripe_token],
+>      })
+> ```
 >
 > update order to include the charge
 >

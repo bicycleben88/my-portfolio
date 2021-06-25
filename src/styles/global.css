@@ -20,8 +20,8 @@ a:hover {
     translateX(calc(var(--slide) * 1%));
   transition: transform 0.3s;
 }
-
 pre {
   background-color: white;
-  padding: 1rem;
+  padding: 0.5rem;
+  overflow-x: auto;
 }
