@@ -41,6 +41,8 @@ This is a front end e-commerce web application built with React. Users can creat
 
 > ## Custom Hooks
 >
+> ---
+>
 > #### useCart()
 >
 > use createContext() to create Provider component
@@ -104,6 +106,8 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > ## Store JWT Tokens in Local Storage
 >
+> ---
+>
 > Keeps a user logged in if page is reloaded
 >
 > Make fetch request to API end point
@@ -151,6 +155,8 @@ This is a front end e-commerce web application built with React. Users can creat
 > ```
 >
 > ## Cart
+>
+> ---
 >
 > use custom hook to open & close the cart (see above)
 >
@@ -221,6 +227,8 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > ## Add (Multiple) Cart Items
 >
+> ---
+>
 > handle POST request from front end to /cartitems
 >
 > use .find\_\_by to determine if a cart item with an item_id already exists
@@ -249,6 +257,8 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > ## Stripe Credit Card Payments
 >
+> ---
+>
 > Create Stripe account to get API keys
 >
 > ### Stripe w/ Ruby on Rails API
@@ -257,7 +267,14 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > - Add API keys (stored as environmental variables)
 >
-> ![stripe.rb](https://i.imgur.com/aNp8b1h.png)
+> ```
+> Rails.configuration.stripe = {
+>  :publishable_key => ENV['PUBLISHABLE_KEY'],
+>  :secret_key      => ENV['SECRET_KEY']
+> }
+>
+> Stripe.api_key = Rails.configuration.stripe[:secret_key]
+> ```
 >
 > Add Environmental variables
 >
