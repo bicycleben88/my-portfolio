@@ -330,7 +330,16 @@ This is a front end e-commerce web application built with React. Users can creat
 > ```
 >
 > - return Stripe Element w/ checkout form, passing down stripe configuration & user as props
-> - ![checkout component](https://i.imgur.com/iuDTapI.png)
+>
+> ```
+> const CheckOut = ({ user }) => {
+>  return (
+>    <Elements stripe={stripeLib}>
+>      <CheckOutForm user={user} />
+>    </Elements>
+>   );
+> };
+> ```
 >
 > CheckOut Form
 >
