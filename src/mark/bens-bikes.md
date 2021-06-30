@@ -324,7 +324,11 @@ This is a front end e-commerce web application built with React. Users can creat
 > ```
 >
 > - configure stripe w/API key
-> - ![stripe config](https://i.imgur.com/5fc5y6N.png)
+>
+> ```
+> const stripeLib = loadStripe(process.env.REACT_APP_STRIPE_KEY);
+> ```
+>
 > - return Stripe Element w/ checkout form, passing down stripe configuration & user as props
 > - ![checkout component](https://i.imgur.com/iuDTapI.png)
 >
