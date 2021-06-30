@@ -305,7 +305,9 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > update order to include the charge
 >
-> ![update order with stripe payment](https://i.imgur.com/sGTHfrq.png)
+> ```
+> @order.update(charge: @charge.id)
+> ```
 >
 > ### Stripe w/ React front end
 >
