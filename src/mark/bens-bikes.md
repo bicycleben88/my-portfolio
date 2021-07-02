@@ -419,6 +419,8 @@ This is a front end e-commerce web application built with React. Users can creat
 >
 > ## Pagination
 >
+> ---
+>
 > ### React front end
 >
 > Render \<ItemsPage> component for routes "/", "/items", & "/items/:id"
