@@ -351,7 +351,18 @@ This is a front end e-commerce web application built with React. Users can creat
 > ```
 >
 > - return \<form> w/ messages to handle loading and errors, & Stripe \<CardElement>
-> - ![checkout form component](https://i.imgur.com/Hty3dEG.png)
+>
+> ```
+> return (
+>    <CheckOutFormStyles onSubmit={handleCheckout}>
+>      {error && <p className="message">{error.message}></p>}
+>      {loading && <p className="message">Processing >Payment...</p>}
+>      <CardElement />
+>      <button className="checkout">Check Out</button>
+>    </CheckOutFormStyles>
+>  );
+> ```
+>
 > - save Stripe hooks to variables that will be used when submitting checkout form
 > - ![stripe hooks](https://i.imgur.com/Qvwg2u1.png)
 >
