@@ -364,7 +364,11 @@ This is a front end e-commerce web application built with React. Users can creat
 > ```
 >
 > - save Stripe hooks to variables that will be used when submitting checkout form
-> - ![stripe hooks](https://i.imgur.com/Qvwg2u1.png)
+>
+> ```
+>  const stripe = useStripe();
+>  const elements = useElements();
+> ```
 >
 > handleCheckout()
 >
