@@ -375,13 +375,48 @@ This is a front end e-commerce web application built with React. Users can creat
 > - preventDefault() - stop page from reloading
 > - setLoading(true) - prints loading message
 > - create Stripe payment method w/ async function
-> - ![stripe payment method](https://i.imgur.com/l7Ip7RG.png)
 > - handle error w/ if() statement - prints error message
 > - make post request to API to create Order w/ order details & Stripe payment token
-> - ![order API](https://i.imgur.com/DjLsvgA.png)
 > - redirect to order page, clear form, close cart, reset loading and error state
-> - ![clear form](https://i.imgur.com/f7qTkSP.png)
-
+>
+> ```
+>  const handleCheckout = async (e) => {
+>    e.preventDefault();
+>
+>    setLoading(true);
+>
+>    const { error, paymentMethod } = await stripe.createPaymentMethod({
+>      type: "card",
+>      card: elements.getElement(CardElement),
+>    });
+>
+>    if (error) {
+>      setError(error);
+>      setLoading(false);
+>      return;
+>    }
+>
+>    const response = await fetch(`${url}/orders`, {
+>      method: "POST",
+>      headers: {
+>        Authorization: `bearer: ${token}`,
+>        "content-type": "application/json",
+>      },
+>      body: JSON.stringify({
+>        user_id: user.id,
+>        stripe_token: paymentMethod.id,
+>      }),
+>    });
+>    const data = await response.json();
+>
+>    history.push(`/orders/${data.id}`);
+>    elements.getElement(CardElement).clear(); // clear CC form
+>    closeCart();
+>    setError();
+>    setLoading(false);
+>  };
+> ```
+>
 > ## Pagination
 >
 > ### React front end
