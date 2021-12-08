@@ -4,11 +4,11 @@ import { graphql } from "gatsby"
 import BlogStyles from "../styles/blogStyles"
 
 export default function MarkPage({ data }) {
-  const post = data.markdownRemark
+  // const post = data.markdownRemark
 
   return (
     <Layout>
-      <BlogStyles>
+      {/* <BlogStyles>
         <h1 style={{ fontSize: "45px" }}>{post.frontmatter.title}</h1>
         <small>{post.frontmatter.date}</small>
         <h3>
@@ -17,20 +17,20 @@ export default function MarkPage({ data }) {
           </a>
         </h3>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </BlogStyles>
+      </BlogStyles> */}
     </Layout>
   )
 }
 
-export const query = graphql`
-  query BlogQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM Do, YYYY")
-        url
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query BlogQuery($slug: String!) {
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       html
+//       frontmatter {
+//         title
+//         date(formatString: "MMMM Do, YYYY")
+//         url
+//       }
+//     }
+//   }
+// `

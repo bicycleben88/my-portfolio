@@ -1,37 +1,27 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+console.log(process.env.SANITY_TOKEN)
 
 module.exports = {
-  /* Your site config here */
   siteMetadata: {
     title: "Benjamin A. Higginbotham",
     description: "I ride bikes in Lycra. I write code in JavaScript.",
+    siteUrl: "https://higginbotham.fun",
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-sanity",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
+        projectId: "j0etx6fw",
+        dataset: "production",
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
       },
     },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown`,
-        path: `${__dirname}/src/mark/`,
-      },
-    },
-    `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 }
