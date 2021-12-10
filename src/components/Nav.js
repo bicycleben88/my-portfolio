@@ -12,6 +12,7 @@ const NavStyles = styled.nav`
     align-items: center;
     margin: 0;
     padding: 0;
+    margin-top: -6rem;
     text-align: center;
     list-style: none;
   }
@@ -24,10 +25,14 @@ const NavStyles = styled.nav`
     .hide-me {
       display: block;
       visibility: hidden;
+      font-size: 1.25rem;
     }
     &:hover {
       transform: scale(1.1);
     }
+  }
+  a {
+    font-size: 2.25rem;
   }
 `
 
