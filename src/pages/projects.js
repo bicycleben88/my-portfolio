@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import ProjectList from "../components/ProjectList"
 
 export default function ProjectsPage({ data }) {
   const projects = data.projects.nodes
   return (
     <div>
-      <p>waddup, there are {projects.length} projects</p>
+      <ProjectList projects={projects} />
     </div>
   )
 }
