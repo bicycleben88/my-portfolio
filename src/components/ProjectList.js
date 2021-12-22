@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
+import Image from "gatsby-plugin-sanity-image"
 
 function SingleProject({ project }) {
   return (
@@ -8,6 +9,16 @@ function SingleProject({ project }) {
         <h2>{project.name}</h2>
       </Link>
       <p>{project.technologies.map(tech => tech.name).join(", ")}</p>
+      <Image
+        {...project.image}
+        width={300}
+        height={200}
+        style={{
+          width: "300px",
+          height: "200px",
+          objectFit: "cover",
+        }}
+      />
     </div>
   )
 }

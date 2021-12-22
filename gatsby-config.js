@@ -18,6 +18,13 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        projectId: "j0etx6fw",
+        dataset: "production",
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

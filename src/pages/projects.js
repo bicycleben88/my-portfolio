@@ -25,9 +25,7 @@ export const query = graphql`
           id
         }
         image {
-          asset {
-            url
-          }
+          ...ImageWithPreview
         }
       }
     }
