@@ -24,7 +24,7 @@ const ProjectStyles = styled.div`
 function SingleProject({ project }) {
   return (
     <ProjectStyles>
-      <Link to={`/project/${project.name}`}>
+      <Link to={`/project/${project.slug.current}`}>
         <h2>
           <span className="span">{project.name}</span>
         </h2>
