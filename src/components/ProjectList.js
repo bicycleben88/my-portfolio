@@ -30,7 +30,7 @@ function SingleProject({ project }) {
         </h2>
       </Link>
       <p>{project.technologies.map(tech => tech.name).join(", ")}</p>
-      <Image {...project.image} width={300} height={200} />
+      <Image {...project.image} width={300} height={200} alt={project.name} />
     </ProjectStyles>
   )
 }
