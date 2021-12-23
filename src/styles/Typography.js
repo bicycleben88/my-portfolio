@@ -32,11 +32,16 @@ const Typography = createGlobalStyle`
     display: inline;
     line-height: 1;
   }
-
+  .sticker {
+    position: absolute;
+    right: -1rem;
+    background-color: var(--yellow);
+    transform: rotate(8deg);
+    padding: 2px 2px 0 2px;
+  }
   .center {
     text-align: center;
   }
-
   .tilt {
     transform: rotate(-2deg);
   }

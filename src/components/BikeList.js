@@ -17,6 +17,7 @@ const BikeStyles = styled.div`
   grid-template-rows: var(--rows, subgrid);
   grid-row: span 3;
   gap: 1rem;
+  position: relative;
   p {
     margin: 0;
   }
@@ -25,7 +26,7 @@ const BikeStyles = styled.div`
 function BikePic({ pic }) {
   return (
     <BikeStyles>
-      <h3>{pic.name}</h3>
+      <h3 className="sticker">{pic.name}</h3>
       <Image {...pic.image} alt={pic.name} width={300} height={200} />
       <p>{pic.description}</p>
     </BikeStyles>

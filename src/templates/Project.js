@@ -11,13 +11,6 @@ const SingleProjectStyles = styled.div`
   img {
     grid-row: span 3;
   }
-  .sticker {
-    position: absolute;
-    right: -1rem;
-    background-color: var(--yellow);
-    transform: rotate(8deg);
-    padding: 2px 2px 0 2px;
-  }
   .sticker:hover {
     transform: scale(1.1) rotate(8deg);
   }
