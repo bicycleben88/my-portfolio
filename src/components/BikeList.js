@@ -8,6 +8,7 @@ const BikeListStyles = styled.div`
   grid-auto-rows: auto auto 300px;
   gap: 4rem;
 `
+
 const BikeStyles = styled.div`
   display: grid;
   @supports not (grid-template-rows: subgrid) {
@@ -30,6 +31,7 @@ function BikePic({ pic }) {
     </BikeStyles>
   )
 }
+
 export default function BikeList({ pics }) {
   return (
     <BikeListStyles>

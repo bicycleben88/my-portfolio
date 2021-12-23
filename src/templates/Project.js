@@ -15,12 +15,10 @@ export default function SingleProjectPage({ data }) {
     <SingleProjectStyles>
       <Image {...project.image} width={300} height={200} alt={project.name} />
       <div>
-        <h2 className="mark">
-          {project.name}
-          <Link to={project.url}>
-            <span className="span">Live Site!</span>
-          </Link>
-        </h2>
+        <Link to={project.url}>
+          <span className="mark">Live Site!</span>
+        </Link>
+        <h2 className="mark">{project.name}</h2>
         <ul>
           {project.technologies.map(tech => (
             <li key={tech.id}>{tech.name}</li>

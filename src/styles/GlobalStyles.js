@@ -84,12 +84,6 @@ const GlobalStyles = createGlobalStyle`
     background-image: url(${background});
     background-size: 1500px;
   }
-
-  .span {
-    background-color: var(--pink);
-    color: var(--grey);
-    padding: 0 .25rem;
-  }
 `
 
 export default GlobalStyles

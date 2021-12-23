@@ -25,7 +25,8 @@ const Typography = createGlobalStyle`
     text-decoration-skip-ink: none;
   }
   mark, .mark {
-    background: var(--pink);
+    background-color: var(--pink);
+    color: var(--grey);
     padding: 0 2px 2px 2px;
     margin: 0;
     display: inline;
