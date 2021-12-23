@@ -1,4 +1,3 @@
-const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
 
 async function turnProjectsIntoPages({ graphql, actions }) {
@@ -26,10 +25,35 @@ async function turnProjectsIntoPages({ graphql, actions }) {
     })
   )
 }
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  console.log("fix create node")
+
+async function turnTechnologiesIntoPages({ graphql, actions }) {
+  const techTemplate = path.resolve("./src/pages/projects.js")
+
+  const { data } = await graphql(`
+    query {
+      technologies: allSanityTechnology {
+        nodes {
+          name
+          id
+        }
+      }
+    }
+  `)
+
+  data.technologies.nodes.forEach(tech => {
+    actions.createPage({
+      path: `tech/${tech.name}`,
+      component: techTemplate,
+      context: {
+        technology: tech.name,
+      },
+    })
+  })
 }
 
 exports.createPages = async params => {
-  await turnProjectsIntoPages(params)
+  await Promise.all([
+    turnProjectsIntoPages(params),
+    turnTechnologiesIntoPages(params),
+  ])
 }

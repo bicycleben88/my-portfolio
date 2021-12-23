@@ -75,7 +75,7 @@ export default function ProjectFilter() {
         <span className="count">{projects.nodes.length}</span>
       </Link>
       {techsWithCount.map(tech => (
-        <Link to={`/toppings/${tech.name}`} key={tech.id}>
+        <Link to={`/tech/${tech.name}`} key={tech.id}>
           <span className="name">{tech.name}</span>
           <span className="count">{tech.count}</span>
         </Link>

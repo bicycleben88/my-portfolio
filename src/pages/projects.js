@@ -14,8 +14,10 @@ export default function ProjectsPage({ data }) {
 }
 
 export const query = graphql`
-  query ProjectQuery {
-    projects: allSanityProject {
+  query ProjectQuery($technology: [String]) {
+    projects: allSanityProject(
+      filter: { technologies: { elemMatch: { name: { in: $technology } } } }
+    ) {
       nodes {
         name
         id
