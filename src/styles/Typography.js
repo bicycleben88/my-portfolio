@@ -27,7 +27,7 @@ const Typography = createGlobalStyle`
   mark, .mark {
     background-color: var(--pink);
     color: var(--grey);
-    padding: 0 2px 2px 2px;
+    padding: 2px 2px 0 2px;
     margin: 0;
     display: inline;
     line-height: 1;

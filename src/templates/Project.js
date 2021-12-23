@@ -7,26 +7,42 @@ const SingleProjectStyles = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  position: relative;
+  img {
+    grid-row: span 3;
+  }
+  .sticker {
+    position: absolute;
+    right: -1rem;
+    background-color: var(--yellow);
+    transform: rotate(8deg);
+    padding: 2px 2px 0 2px;
+  }
+  .sticker:hover {
+    transform: scale(1.1) rotate(8deg);
+  }
 `
 
 export default function SingleProjectPage({ data }) {
   const { project } = data
   return (
     <SingleProjectStyles>
+      <h2>{project.name}</h2>
       <Image {...project.image} width={300} height={200} alt={project.name} />
-      <div>
-        <Link to={project.url}>
-          <span className="mark">Live Site!</span>
-        </Link>
-        <h2 className="mark">{project.name}</h2>
-        <ul>
-          {project.technologies.map(tech => (
-            <li key={tech.id}>{tech.name}</li>
-          ))}
-        </ul>
-        <p>{project.description}</p>
-        <Link to={project.video}>Video Walkthru</Link>
-      </div>
+      <Link to={project.url} className="sticker">
+        <span>Live Site!</span>
+      </Link>
+      <ul>
+        <li>
+          <Link to={project.video}>
+            <span className="mark">Video Walkthru</span>
+          </Link>
+        </li>
+        {project.technologies.map(tech => (
+          <li key={tech.id}>{tech.name}</li>
+        ))}
+      </ul>
+      <p>{project.description}</p>
     </SingleProjectStyles>
   )
 }
