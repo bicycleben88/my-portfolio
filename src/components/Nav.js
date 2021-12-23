@@ -67,7 +67,7 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/bike">
+          <Link to="/bikes">
             <span className="hide-me">x</span>
             Bike Stuff
             <span className="nav-text">rando...nneur</span>
