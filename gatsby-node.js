@@ -1,4 +1,5 @@
 const path = require(`path`)
+const fetch = require("isomorphic-fetch")
 
 async function turnProjectsIntoPages({ graphql, actions }) {
   const projectTemplate = path.resolve("./src/templates/Project.js")
@@ -15,6 +16,7 @@ async function turnProjectsIntoPages({ graphql, actions }) {
       }
     }
   `)
+
   data.projects.nodes.forEach(project =>
     actions.createPage({
       path: `/project/${project.slug.current}`,
@@ -49,6 +51,36 @@ async function turnTechnologiesIntoPages({ graphql, actions }) {
       },
     })
   })
+}
+
+async function fetchSimpsonsEpisodesAndTurnIntoNodes({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) {
+  const res = await fetch("https://api.sampleapis.com/simpsons/episodes")
+  const episodes = await res.json()
+
+  for (const episode of episodes) {
+    const nodeMeta = {
+      id: createNodeId(`episode-${episode.name}`),
+      parent: null,
+      children: null,
+      internal: {
+        type: "Episode",
+        mediaType: "application/json",
+        contentDigest: createContentDigest(episode),
+      },
+    }
+    actions.createNode({
+      ...episode,
+      ...nodeMeta,
+    })
+  }
+}
+
+exports.sourceNodes = async params => {
+  await Promise.all([fetchSimpsonsEpisodesAndTurnIntoNodes(params)])
 }
 
 exports.createPages = async params => {
