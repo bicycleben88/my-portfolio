@@ -63,9 +63,9 @@ const GlobalStyles = createGlobalStyle`
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--red) ;
+    background-color: var(--purple) ;
     border-radius: 6px;
-    border: 3px solid var(--white);
+    border: 1px solid var(--pink);
   }
 
   img {

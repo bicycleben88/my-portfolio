@@ -18,7 +18,7 @@ export default function AboutPage({ data }) {
 
 export const query = graphql`
   query SimpsonsQuery {
-    episodes: allEpisode {
+    episodes: allEpisode(filter: { season: { eq: 1 } }) {
       nodes {
         episode
         id
