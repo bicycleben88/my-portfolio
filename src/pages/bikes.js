@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import BikeList from "../components/BikeList"
 
 export default function BikePage({ data }) {
@@ -13,8 +13,8 @@ export default function BikePage({ data }) {
 }
 
 export const query = graphql`
-  query BikePicturesQuery {
-    bikePics: allSanityBikePictures {
+  query BikePicturesQuery($skip: Int = 0, $pageSize: Int = 5) {
+    bikePics: allSanityBikePictures(skip: $skip, limit: $pageSize) {
       nodes {
         name
         description
