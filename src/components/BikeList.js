@@ -1,13 +1,7 @@
 import React from "react"
 import Image from "gatsby-plugin-sanity-image"
 import styled from "styled-components"
-
-const BikeListStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: auto auto 300px;
-  gap: 4rem;
-`
+import { GridStyles } from "../styles/GridStyles"
 
 const BikeStyles = styled.div`
   display: grid;
@@ -35,10 +29,10 @@ function BikePic({ pic }) {
 
 export default function BikeList({ pics }) {
   return (
-    <BikeListStyles>
+    <GridStyles>
       {pics.map(pic => (
         <BikePic pic={pic} key={pic.id} />
       ))}
-    </BikeListStyles>
+    </GridStyles>
   )
 }

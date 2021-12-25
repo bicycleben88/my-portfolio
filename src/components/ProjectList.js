@@ -2,13 +2,8 @@ import { Link } from "gatsby"
 import React from "react"
 import Image from "gatsby-plugin-sanity-image"
 import styled from "styled-components"
+import { GridStyles } from "../styles/GridStyles"
 
-const ProjectListStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: auto auto 300px;
-  gap: 4rem;
-`
 const ProjectStyles = styled.div`
   display: grid;
   @supports not (grid-template-rows: subgrid) {
@@ -37,10 +32,10 @@ function SingleProject({ project }) {
 
 export default function ProjectList({ projects }) {
   return (
-    <ProjectListStyles>
+    <GridStyles>
       {projects.map(project => (
         <SingleProject project={project} key={project.id} />
       ))}
-    </ProjectListStyles>
+    </GridStyles>
   )
 }

@@ -1,11 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import { GridStyles } from "../styles/GridStyles"
 
-const SimpsonListStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-`
 const EpisodeStyles = styled.div`
   display: grid;
   justify-content: center;
@@ -43,10 +39,10 @@ function Episode({ singleEpisode }) {
 
 export default function SimpsonsList({ episodes }) {
   return (
-    <SimpsonListStyles>
+    <GridStyles>
       {episodes.map(episode => (
         <Episode key={episode.id} singleEpisode={episode} />
       ))}
-    </SimpsonListStyles>
+    </GridStyles>
   )
 }
