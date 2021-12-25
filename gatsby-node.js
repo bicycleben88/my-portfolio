@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const path = require(`path`)
 const fetch = require("isomorphic-fetch")
 
@@ -53,6 +57,35 @@ async function turnTechnologiesIntoPages({ graphql, actions }) {
   })
 }
 
+async function turnBikePicsIntoPage({ graphql, actions }) {
+  const { data } = await graphql(`
+    query {
+      bikePics: allSanityBikePictures {
+        totalCount
+        nodes {
+          name
+          id
+        }
+      }
+    }
+  `)
+
+  const pageSize = 5
+  const pageCount = Math.ceil(data.bikePics.totalCount / pageSize)
+
+  Array.from({ length: pageCount }).forEach((_, i) => {
+    actions.createPage({
+      path: `/bikes/${i + 1}`,
+      component: path.resolve("./src/pages/bikes.js"),
+      context: {
+        skip: i * pageSize,
+        currentPage: i + 1,
+        pageSize,
+      },
+    })
+  })
+}
+
 async function fetchSimpsonsEpisodesAndTurnIntoNodes({
   actions,
   createNodeId,
@@ -87,5 +120,6 @@ exports.createPages = async params => {
   await Promise.all([
     turnProjectsIntoPages(params),
     turnTechnologiesIntoPages(params),
+    turnBikePicsIntoPage(params),
   ])
 }
