@@ -9,7 +9,7 @@ const SimpsonListStyles = styled.div`
 const EpisodeStyles = styled.div`
   display: grid;
   justify-content: center;
-  box-shadow: 1px 1px 2px 2px var(--purple);
+  box-shadow: 2px 2px 0 var(--grey);
   padding: 2rem;
   img {
     width: 100%;
