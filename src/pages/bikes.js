@@ -9,7 +9,7 @@ export default function BikePage({ data, pageContext }) {
   return (
     <div>
       <Pagination
-        pageSize={3}
+        pageSize={5}
         totalCount={data.bikePics.totalCount}
         currentPage={pageContext.currentPage || 1}
         skip={pageContext.skip}
