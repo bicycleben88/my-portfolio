@@ -11,6 +11,9 @@ const SingleProjectStyles = styled.div`
   img {
     grid-row: span 3;
   }
+  a {
+    text-decoration: none;
+  }
   .sticker:hover {
     transform: scale(1.1) rotate(8deg);
   }
