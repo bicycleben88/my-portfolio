@@ -65,10 +65,23 @@ async function turnBikePicsIntoPage({ graphql, actions }) {
         nodes {
           name
           id
+          slug {
+            current
+          }
         }
       }
     }
   `)
+
+  data.bikePics.nodes.map(pic => {
+    actions.createPage({
+      path: `/bikes/${pic.slug.current}`,
+      component: path.resolve("./src/templates/BikePic.js"),
+      context: {
+        slug: pic.slug.current,
+      },
+    })
+  })
 
   const pageSize = 5
   const pageCount = Math.ceil(data.bikePics.totalCount / pageSize)

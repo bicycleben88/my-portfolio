@@ -31,6 +31,9 @@ export const query = graphql`
         image {
           ...ImageWithPreview
         }
+        slug {
+          current
+        }
       }
     }
   }

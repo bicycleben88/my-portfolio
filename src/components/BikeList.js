@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "gatsby-plugin-sanity-image"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { GridStyles } from "../styles/GridStyles"
 
 const BikeStyles = styled.div`
@@ -20,7 +21,9 @@ const BikeStyles = styled.div`
 function BikePic({ pic }) {
   return (
     <BikeStyles>
-      <h3 className="sticker">{pic.name}</h3>
+      <Link to={`/bikes/${pic.slug.current}`}>
+        <h3 className="sticker">{pic.name}</h3>
+      </Link>
       <Image {...pic.image} alt={pic.name} width={300} height={200} />
       <p>{pic.description}</p>
     </BikeStyles>
