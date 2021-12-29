@@ -2,12 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import BikeList from "../components/BikeList"
 import Pagination from "../components/Pagination"
+import SEO from "../components/SEO"
 
 export default function BikePage({ data, pageContext }) {
   const bikePics = data.bikePics.nodes
 
   return (
-    <div>
+    <>
+      <SEO title="Bike Stuff" />
       <Pagination
         pageSize={5}
         totalCount={data.bikePics.totalCount}
@@ -16,7 +18,7 @@ export default function BikePage({ data, pageContext }) {
         base="/bikes"
       />
       <BikeList pics={bikePics} />
-    </div>
+    </>
   )
 }
 

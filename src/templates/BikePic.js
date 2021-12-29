@@ -20,7 +20,7 @@ export default function BikePic({ data }) {
 
   return (
     <>
-      <SEO title={singleBike.name} />
+      <SEO title={singleBike.name} image={singleBike.image.asset?.url} />
       <SingleBikePicStyles>
         <Image
           {...singleBike.image}
@@ -43,6 +43,9 @@ export const query = graphql`
       description
       image {
         ...ImageWithPreview
+        asset {
+          url
+        }
       }
     }
   }

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-plugin-sanity-image"
+import SEO from "../components/SEO"
 
 const SingleProjectStyles = styled.div`
   display: grid;
@@ -22,24 +23,27 @@ const SingleProjectStyles = styled.div`
 export default function SingleProjectPage({ data }) {
   const { project } = data
   return (
-    <SingleProjectStyles>
-      <h2>{project.name}</h2>
-      <Image {...project.image} width={300} height={200} alt={project.name} />
-      <Link to={project.url} className="sticker">
-        <span>Live Site!</span>
-      </Link>
-      <ul>
-        <li>
-          <Link to={project.video}>
-            <span className="mark">Video Walkthru</span>
-          </Link>
-        </li>
-        {project.technologies.map(tech => (
-          <li key={tech.id}>{tech.name}</li>
-        ))}
-      </ul>
-      <p>{project.description}</p>
-    </SingleProjectStyles>
+    <>
+      <SEO title={project.name} image={project.image?.asset?.url} />
+      <SingleProjectStyles>
+        <h2>{project.name}</h2>
+        <Image {...project.image} width={300} height={200} alt={project.name} />
+        <Link to={project.url} className="sticker">
+          <span>Live Site!</span>
+        </Link>
+        <ul>
+          <li>
+            <Link to={project.video}>
+              <span className="mark">Video Walkthru</span>
+            </Link>
+          </li>
+          {project.technologies.map(tech => (
+            <li key={tech.id}>{tech.name}</li>
+          ))}
+        </ul>
+        <p>{project.description}</p>
+      </SingleProjectStyles>
+    </>
   )
 }
 
@@ -57,6 +61,9 @@ export const query = graphql`
       }
       image {
         ...ImageWithPreview
+        asset {
+          url
+        }
       }
     }
   }
