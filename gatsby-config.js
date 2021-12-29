@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Benjamin A. Higginbotham",
-    description: "I ride bikes in Lycra. I write code in JavaScript.",
+    title: "Ben's Portfolio",
+    description: "A compendium of my coding work",
     siteUrl: "https://higginbotham.fun",
   },
   plugins: [
@@ -29,5 +29,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
   ],
 }

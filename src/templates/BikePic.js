@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-plugin-sanity-image"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 const SingleBikePicStyles = styled.div`
   display: flex;
@@ -18,16 +19,19 @@ export default function BikePic({ data }) {
   const { singleBike } = data
 
   return (
-    <SingleBikePicStyles>
-      <Image
-        {...singleBike.image}
-        alt={singleBike.name}
-        width={300}
-        height={200}
-      />
-      <h2>{singleBike.name}</h2>
-      <p>{singleBike.description}</p>
-    </SingleBikePicStyles>
+    <>
+      <SEO title={singleBike.name} />
+      <SingleBikePicStyles>
+        <Image
+          {...singleBike.image}
+          alt={singleBike.name}
+          width={300}
+          height={200}
+        />
+        <h2>{singleBike.name}</h2>
+        <p>{singleBike.description}</p>
+      </SingleBikePicStyles>
+    </>
   )
 }
 
