@@ -1,5 +1,6 @@
 import React from "react"
 import SEO from "../components/SEO"
+import ContactFormStyles from "../styles/ContactFormStyles"
 import useForm from "../utils/useForm"
 
 export default function Contact() {
@@ -13,7 +14,7 @@ export default function Contact() {
   return (
     <>
       <SEO title="Contact me" />
-      <form>
+      <ContactFormStyles>
         <fieldset>
           <legend>Your Info</legend>
           <label htmlFor="name">
@@ -48,7 +49,7 @@ export default function Contact() {
             />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="query">
           <legend>Inquest Info</legend>
           <label htmlFor="query">
             What can I do for you?
@@ -60,7 +61,10 @@ export default function Contact() {
             />
           </label>
         </fieldset>
-      </form>
+        <fieldset class="template">
+          <legend>Email Template</legend>
+        </fieldset>
+      </ContactFormStyles>
     </>
   )
 }
