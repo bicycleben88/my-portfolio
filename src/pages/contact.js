@@ -1,9 +1,14 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Image from "gatsby-plugin-sanity-image"
 import SEO from "../components/SEO"
 import ContactFormStyles from "../styles/ContactFormStyles"
 import useForm from "../utils/useForm"
+import BikeMenuItemStyles from "../styles/BikeMenuItemStyles"
 
-export default function Contact() {
+export default function ContactPage({ data }) {
+  const bikePics = data.bikePics.nodes
+
   const { values, updateValues } = useForm({
     name: "",
     email: "",
@@ -42,15 +47,12 @@ export default function Contact() {
             <input
               type="text"
               name="role"
-              placeholder="Recruiter, Project Manager, etc"
+              placeholder="Recruiter, Project Manager, Best Friend, etc"
               id="role"
               value={values.role}
               onChange={updateValues}
             />
           </label>
-        </fieldset>
-        <fieldset class="query">
-          <legend>Inquest Info</legend>
           <label htmlFor="query">
             What can I do for you?
             <textarea
@@ -61,6 +63,16 @@ export default function Contact() {
             />
           </label>
         </fieldset>
+        <fieldset class="menu">
+          <legend>Picture Menu</legend>
+          {bikePics.map(pic => (
+            <BikeMenuItemStyles>
+              <Image {...pic.image} alt={pic.name} />
+              <h2>{pic.name}</h2>
+              <button type="button">Add to Email</button>
+            </BikeMenuItemStyles>
+          ))}
+        </fieldset>
         <fieldset class="template">
           <legend>Email Template</legend>
         </fieldset>
@@ -68,3 +80,17 @@ export default function Contact() {
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    bikePics: allSanityBikePictures {
+      nodes {
+        name
+        id
+        image {
+          ...ImageWithPreview
+        }
+      }
+    }
+  }
+`
