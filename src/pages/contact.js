@@ -22,15 +22,23 @@ export default function ContactPage({ data }) {
     pictureBook,
     addToPictureBook,
     removeFromPictureBook,
+    error,
+    loading,
+    message,
+    submitPictureBook,
   } = usePictureBook({
     bikePics,
-    inputs: values,
+    values,
   })
+
+  if (message) {
+    return <p>{message}</p>
+  }
 
   return (
     <>
       <SEO title="Contact me" />
-      <ContactFormStyles>
+      <ContactFormStyles onSubmit={submitPictureBook}>
         <fieldset>
           <legend>Your Info</legend>
           <label htmlFor="name">
@@ -99,7 +107,10 @@ export default function ContactPage({ data }) {
         </fieldset>
         <fieldset>
           <legend>Email Me your contact info & favorite pictures</legend>
-          <button type="submit">Send Email</button>
+          {error && <p>{error}</p>}
+          <button type="submit" disabled={loading}>
+            {loading ? "Sending Email..." : "Send Email"}
+          </button>
         </fieldset>
       </ContactFormStyles>
     </>
@@ -114,6 +125,9 @@ export const query = graphql`
         id
         image {
           ...ImageWithPreview
+          asset {
+            url
+          }
         }
       }
     }
