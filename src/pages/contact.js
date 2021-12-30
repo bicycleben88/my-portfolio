@@ -97,6 +97,10 @@ export default function ContactPage({ data }) {
             bikePics={bikePics}
           />
         </fieldset>
+        <fieldset>
+          <legend>Email Me your contact info & favorite pictures</legend>
+          <button type="submit">Send Email</button>
+        </fieldset>
       </ContactFormStyles>
     </>
   )

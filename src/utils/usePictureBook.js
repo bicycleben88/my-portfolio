@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useContext } from "react"
+import PictureBookContext from "../components/PictureBookContext"
 
 export default function usePictureBook({ bikePics, inputs }) {
-  const [pictureBook, setPictureBook] = useState([])
+  const [pictureBook, setPictureBook] = useContext(PictureBookContext)
 
   function addToPictureBook(selectedPic) {
     setPictureBook([...pictureBook, selectedPic])

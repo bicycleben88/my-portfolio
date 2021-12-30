@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
@@ -28,6 +29,7 @@ const Footer = props => {
       >
         <h5>LinkedIn</h5>
       </a>
+      <Link to="/contact">Contact Page</Link>
     </FooterStyles>
   )
 }

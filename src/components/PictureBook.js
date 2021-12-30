@@ -13,7 +13,7 @@ export default function PictureBook({
         const pic = bikePics.find(bikePic => bikePic.id === singlePicture.id)
 
         return (
-          <BikeMenuItemStyles key={singlePicture.id}>
+          <BikeMenuItemStyles key={`${singlePicture.id}--${index}`}>
             <Image {...pic.image} alt={pic.name} />
             <h2>{pic.name}</h2>
             <button
