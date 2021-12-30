@@ -5,6 +5,8 @@ import SEO from "../components/SEO"
 import ContactFormStyles from "../styles/ContactFormStyles"
 import useForm from "../utils/useForm"
 import BikeMenuItemStyles from "../styles/BikeMenuItemStyles"
+import usePictureBook from "../utils/usePictureBook"
+import PictureBook from "../components/PictureBook"
 
 export default function ContactPage({ data }) {
   const bikePics = data.bikePics.nodes
@@ -14,6 +16,15 @@ export default function ContactPage({ data }) {
     email: "",
     role: "",
     query: "",
+  })
+
+  const {
+    pictureBook,
+    addToPictureBook,
+    removeFromPictureBook,
+  } = usePictureBook({
+    bikePics,
+    inputs: values,
   })
 
   return (
@@ -63,18 +74,28 @@ export default function ContactPage({ data }) {
             />
           </label>
         </fieldset>
-        <fieldset class="menu">
+        <fieldset className="menu">
           <legend>Picture Menu</legend>
           {bikePics.map(pic => (
-            <BikeMenuItemStyles>
+            <BikeMenuItemStyles key={pic.id}>
               <Image {...pic.image} alt={pic.name} />
               <h2>{pic.name}</h2>
-              <button type="button">Add to Email</button>
+              <button
+                type="button"
+                onClick={() => addToPictureBook({ id: pic.id })}
+              >
+                Add to Picture Book
+              </button>
             </BikeMenuItemStyles>
           ))}
         </fieldset>
-        <fieldset class="template">
-          <legend>Email Template</legend>
+        <fieldset className="template">
+          <legend>Picture Book</legend>
+          <PictureBook
+            pictureBook={pictureBook}
+            removeFromPictureBook={removeFromPictureBook}
+            bikePics={bikePics}
+          />
         </fieldset>
       </ContactFormStyles>
     </>

@@ -25,7 +25,7 @@ const BikeMenuItemStyles = styled.div`
     top: 0;
     right: 0;
     font-size: 1.5;
-    color: var(--purple);
+    color: var(--white);
   }
 `
 
