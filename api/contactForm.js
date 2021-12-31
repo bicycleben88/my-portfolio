@@ -52,6 +52,7 @@ export default async function handler(req, res) {
   }
 
   if (missingFields.length > 0) {
+    await res.status(400)
     await res.json({
       message: `missing fields: ${missingFields.join(", ")}`,
       statusCode: 400,
@@ -68,8 +69,9 @@ export default async function handler(req, res) {
     }),
   })
 
+  await res.status(200)
   await res.json({
-    message: "success",
+    message: "Thanks for the email!",
     statusCode: 200,
   })
 }

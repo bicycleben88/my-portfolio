@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import PictureBookContext from "../components/PictureBookContext"
 import attachImagesToPictureBook from "./attachImagesToPictureBook"
 
-export default function usePictureBook({ bikePics, values }) {
+export default function useContact({ bikePics, values }) {
   const [pictureBook, setPictureBook] = useContext(PictureBookContext)
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
@@ -23,7 +23,7 @@ export default function usePictureBook({ bikePics, values }) {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    setMessage("Thanks for the email!")
+    setMessage(null)
 
     const body = {
       pictureBook: attachImagesToPictureBook(pictureBook, bikePics),
@@ -44,9 +44,9 @@ export default function usePictureBook({ bikePics, values }) {
       }
     )
 
-    const text = await JSON.parse(res.text())
+    const text = JSON.parse(await res.text())
 
-    if (text.status >= 400 && text.status < 600) {
+    if (res.status >= 400 && res.status < 600) {
       setLoading(false)
       setError(text.message)
     } else {

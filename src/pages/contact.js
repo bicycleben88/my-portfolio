@@ -5,7 +5,7 @@ import SEO from "../components/SEO"
 import ContactFormStyles from "../styles/ContactFormStyles"
 import useForm from "../utils/useForm"
 import BikeMenuItemStyles from "../styles/BikeMenuItemStyles"
-import usePictureBook from "../utils/usePictureBook"
+import useContact from "../utils/useContact"
 import PictureBook from "../components/PictureBook"
 
 export default function ContactPage({ data }) {
@@ -26,7 +26,7 @@ export default function ContactPage({ data }) {
     loading,
     message,
     submitPictureBook,
-  } = usePictureBook({
+  } = useContact({
     bikePics,
     values,
   })
@@ -39,7 +39,7 @@ export default function ContactPage({ data }) {
     <>
       <SEO title="Contact me" />
       <ContactFormStyles onSubmit={submitPictureBook}>
-        <fieldset>
+        <fieldset disabled={loading}>
           <legend>Your Info</legend>
           <label htmlFor="name">
             Name
@@ -82,7 +82,7 @@ export default function ContactPage({ data }) {
             />
           </label>
         </fieldset>
-        <fieldset className="menu">
+        <fieldset className="menu" disabled={loading}>
           <legend>Picture Menu</legend>
           {bikePics.map(pic => (
             <BikeMenuItemStyles key={pic.id}>
@@ -97,7 +97,7 @@ export default function ContactPage({ data }) {
             </BikeMenuItemStyles>
           ))}
         </fieldset>
-        <fieldset className="template">
+        <fieldset className="template" disabled={loading}>
           <legend>Picture Book</legend>
           <PictureBook
             pictureBook={pictureBook}
@@ -105,7 +105,7 @@ export default function ContactPage({ data }) {
             bikePics={bikePics}
           />
         </fieldset>
-        <fieldset>
+        <fieldset disabled={loading}>
           <legend>Email Me your contact info & favorite pictures</legend>
           {error && <p>{error}</p>}
           <button type="submit" disabled={loading}>
