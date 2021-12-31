@@ -1,13 +1,14 @@
 const nodemailer = require("nodemailer")
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
+  host: process.env.MAIL_HOST,
   port: 587,
   auth: {
-    user: "rhea.jacobs53@ethereal.email",
-    pass: "RpaytsamWpPSfxeqk4",
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
   },
 })
+
 export default async function handler(req, res) {
   const info = await transporter.sendMail({
     from: "Ben Higginbotham's Portfolio <benny_boi@example.com>",
