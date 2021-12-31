@@ -31,6 +31,7 @@ export default function useContact({ bikePics, values }) {
       email: values.email,
       query: values.query,
       role: values.role,
+      mapleSyrup: values.mapleSyrup,
     }
 
     const res = await fetch(

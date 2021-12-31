@@ -24,6 +24,9 @@ const ContactFormStyles = styled.form`
       grid-column: span 1;
     }
   }
+  .maple-syrup {
+    display: none;
+  }
   @media (max-width: 900px) {
     fieldset.template,
     fieldset.menu {

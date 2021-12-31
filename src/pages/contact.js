@@ -16,6 +16,7 @@ export default function ContactPage({ data }) {
     email: "",
     role: "",
     query: "",
+    mapleSyrup: "",
   })
 
   const {
@@ -59,6 +60,14 @@ export default function ContactPage({ data }) {
               id="email"
               value={values.email}
               onChange={updateValues}
+            />
+            <input
+              type="text"
+              name="mapleSyrup"
+              id="mapleSyrup"
+              value={values.mapleSyrup}
+              onChange={updateValues}
+              className="maple-syrup"
             />
           </label>
           <label htmlFor="role">

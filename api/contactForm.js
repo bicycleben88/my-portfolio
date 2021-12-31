@@ -45,6 +45,10 @@ export default async function handler(req, res) {
   const requiredFields = ["name", "email", "role", "query"]
   const missingFields = []
 
+  if (body.mapleSyrup) {
+    res.status(400)
+    res.json({ message: "error 10000" })
+  }
   for (const field of requiredFields) {
     if (!body[field]) {
       missingFields.push(field)
@@ -52,10 +56,9 @@ export default async function handler(req, res) {
   }
 
   if (missingFields.length > 0) {
-    await res.status(400)
-    await res.json({
+    res.status(400)
+    res.json({
       message: `missing fields: ${missingFields.join(", ")}`,
-      statusCode: 400,
     })
   }
 
@@ -72,6 +75,5 @@ export default async function handler(req, res) {
   await res.status(200)
   await res.json({
     message: "Thanks for the email!",
-    statusCode: 200,
   })
 }
