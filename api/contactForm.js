@@ -9,12 +9,67 @@ const transporter = nodemailer.createTransport({
   },
 })
 
+function generateContactEmail({ pictureBook, name }) {
+  return `
+    <div>
+      <h2>Thank you for getting in Touch ${name}</h2>
+      <p>I will get back to you as soon as I can</p>
+        <ul>
+          ${pictureBook
+            .map(
+              pic =>
+                `<li>
+                  <img src=${pic.image} alt=${pic.name} />
+                </li>`
+            )
+            .join("")}
+        </ul>
+      <p>All the best,</p>
+      <p>Ben</p>
+      <style>
+        ul {
+          list-style: none;
+        }
+        img {
+          width: 150px;
+          height: 100px;
+          object-fit: cover;
+        }
+      </style>
+    </div>
+  `
+}
+
 export default async function handler(req, res) {
-  const info = await transporter.sendMail({
+  const body = req.body
+  const requiredFields = ["name", "email", "role", "query"]
+  const missingFields = []
+
+  for (const field of requiredFields) {
+    if (!body[field]) {
+      missingFields.push(field)
+    }
+  }
+
+  if (missingFields.length > 0) {
+    await res.json({
+      message: `missing fields: ${missingFields.join(", ")}`,
+      statusCode: 400,
+    })
+  }
+
+  await transporter.sendMail({
     from: "Ben Higginbotham's Portfolio <benny_boi@example.com>",
-    to: "orders@example.com",
+    to: `${body.name} <${body.email}>, contact@example.com`,
     subject: "Contact Form Confirmation",
-    html: `<p>Thanks for sending me an email! I'll get back to you soon</p>`,
+    html: generateContactEmail({
+      pictureBook: body.pictureBook,
+      name: body.name,
+    }),
   })
-  await res.json(info)
+
+  await res.json({
+    message: "success",
+    statusCode: 200,
+  })
 }
