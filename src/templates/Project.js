@@ -27,7 +27,7 @@ export default function SingleProjectPage({ data }) {
       <SEO title={project.name} image={project.image?.asset?.url} />
       <SingleProjectStyles>
         <h2>{project.name}</h2>
-        <Image {...project.image} width={300} height={200} alt={project.name} />
+        <Image {...project.image} alt={project.name} />
         <Link to={project.url} className="sticker">
           <span>Live Site!</span>
         </Link>

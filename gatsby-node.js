@@ -57,7 +57,7 @@ async function turnTechnologiesIntoPages({ graphql, actions }) {
   })
 }
 
-async function turnBikePicsIntoPage({ graphql, actions }) {
+async function turnBikePicsIntoPages({ graphql, actions }) {
   const { data } = await graphql(`
     query {
       bikePics: allSanityBikePictures {
@@ -99,6 +99,32 @@ async function turnBikePicsIntoPage({ graphql, actions }) {
   })
 }
 
+async function turnBuildsIntoPages({ graphql, actions }) {
+  const buildTemplate = path.resolve("./src/templates/MiniBuild.js")
+
+  const { data } = await graphql(`
+    query {
+      builds: allSanityMiniBuild {
+        nodes {
+          name
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `)
+
+  data.builds.nodes.forEach(build =>
+    actions.createPage({
+      path: `/builds/${build.slug.current}`,
+      component: buildTemplate,
+      context: {
+        slug: build.slug.current,
+      },
+    })
+  )
+}
 async function fetchSimpsonsEpisodesAndTurnIntoNodes({
   actions,
   createNodeId,
@@ -133,6 +159,7 @@ exports.createPages = async params => {
   await Promise.all([
     turnProjectsIntoPages(params),
     turnTechnologiesIntoPages(params),
-    turnBikePicsIntoPage(params),
+    turnBikePicsIntoPages(params),
+    turnBuildsIntoPages(params),
   ])
 }

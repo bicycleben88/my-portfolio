@@ -22,12 +22,7 @@ export default function BikePic({ data }) {
     <>
       <SEO title={singleBike.name} image={singleBike.image.asset?.url} />
       <SingleBikePicStyles>
-        <Image
-          {...singleBike.image}
-          alt={singleBike.name}
-          width={300}
-          height={200}
-        />
+        <Image {...singleBike.image} alt={singleBike.name} />
         <h2>{singleBike.name}</h2>
         <p>{singleBike.description}</p>
       </SingleBikePicStyles>
