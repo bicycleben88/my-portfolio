@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Image from "gatsby-plugin-sanity-image"
 import { Link } from "gatsby"
-import { GridStyles } from "../styles/GridStyles"
+import { GridListStyles } from "../styles/GridStyles"
 
 const BuildStyles = styled.div`
   display: grid;
@@ -58,11 +58,11 @@ export default function BuildsList({ builds }) {
         </a>{" "}
         or <a href="https://codepen.io/collection/OLEqme">codepen collection</a>
       </p>
-      <GridStyles>
+      <GridListStyles>
         {builds.map(build => (
           <Build build={build} key={build.id} />
         ))}
-      </GridStyles>
+      </GridListStyles>
     </>
   )
 }

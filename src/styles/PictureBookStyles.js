@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const BikeMenuItemStyles = styled.div`
+const PictureBookStyles = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr;
   grid-template-rows: 1fr 1fr;
@@ -29,4 +29,4 @@ const BikeMenuItemStyles = styled.div`
   }
 `
 
-export default BikeMenuItemStyles
+export default PictureBookStyles

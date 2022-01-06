@@ -4,7 +4,7 @@ import Image from "gatsby-plugin-sanity-image"
 import SEO from "../components/SEO"
 import ContactFormStyles from "../styles/ContactFormStyles"
 import useForm from "../utils/useForm"
-import BikeMenuItemStyles from "../styles/BikeMenuItemStyles"
+import PictureBookStyles from "../styles/PictureBookStyles"
 import useContact from "../utils/useContact"
 import PictureBook from "../components/PictureBook"
 
@@ -94,7 +94,7 @@ export default function ContactPage({ data }) {
         <fieldset className="menu" disabled={loading}>
           <legend>Picture Menu</legend>
           {bikePics.map(pic => (
-            <BikeMenuItemStyles key={pic.id}>
+            <PictureBookStyles key={pic.id}>
               <Image {...pic.image} alt={pic.name} />
               <h2>{pic.name}</h2>
               <button
@@ -103,7 +103,7 @@ export default function ContactPage({ data }) {
               >
                 Add to Picture Book
               </button>
-            </BikeMenuItemStyles>
+            </PictureBookStyles>
           ))}
         </fieldset>
         <fieldset className="template" disabled={loading}>

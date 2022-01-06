@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "gatsby-plugin-sanity-image"
-import BikeMenuItemStyles from "../styles/BikeMenuItemStyles"
+import PictureBookStyles from "../styles/PictureBookStyles"
 
 export default function PictureBook({
   bikePics,
@@ -13,7 +13,7 @@ export default function PictureBook({
         const pic = bikePics.find(bikePic => bikePic.id === singlePicture.id)
 
         return (
-          <BikeMenuItemStyles key={`${singlePicture.id}--${index}`}>
+          <PictureBookStyles key={`${singlePicture.id}--${index}`}>
             <Image {...pic.image} alt={pic.name} />
             <h2>{pic.name}</h2>
             <button
@@ -24,7 +24,7 @@ export default function PictureBook({
             >
               &times;
             </button>
-          </BikeMenuItemStyles>
+          </PictureBookStyles>
         )
       })}
     </>

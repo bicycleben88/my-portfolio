@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import Image from "gatsby-plugin-sanity-image"
 import styled from "styled-components"
-import { GridStyles } from "../styles/GridStyles"
+import { GridListStyles } from "../styles/GridStyles"
 
 const ProjectStyles = styled.div`
   display: grid;
@@ -32,10 +32,10 @@ function SingleProject({ project }) {
 
 export default function ProjectList({ projects }) {
   return (
-    <GridStyles>
+    <GridListStyles>
       {projects.map(project => (
         <SingleProject project={project} key={project.id} />
       ))}
-    </GridStyles>
+    </GridListStyles>
   )
 }

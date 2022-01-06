@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/SEO"
 import useLatestData from "../utils/useLatestData"
+import { HomeGridStyles } from "../styles/GridStyles"
 
 function HomeProjects() {
   return <div>Home project</div>
@@ -22,11 +23,11 @@ export default function HomePage() {
     <>
       <SEO title="Home" />
       <h1>Ben Higginbotham</h1>
-      <div>
+      <HomeGridStyles>
         <HomeProjects projects={homeProjects} />
         <HomeBuilds builds={homeBuilds} />
         <HomePics pics={homePics} />
-      </div>
+      </HomeGridStyles>
     </>
   )
 }

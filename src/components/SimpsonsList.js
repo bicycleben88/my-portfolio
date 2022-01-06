@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { GridStyles } from "../styles/GridStyles"
+import { GridListStyles } from "../styles/GridStyles"
 
 const EpisodeStyles = styled.div`
   display: grid;
@@ -39,10 +39,10 @@ function Episode({ singleEpisode }) {
 
 export default function SimpsonsList({ episodes }) {
   return (
-    <GridStyles>
+    <GridListStyles>
       {episodes.map(episode => (
         <Episode key={episode.id} singleEpisode={episode} />
       ))}
-    </GridStyles>
+    </GridListStyles>
   )
 }
