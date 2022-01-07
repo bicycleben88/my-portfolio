@@ -101,7 +101,7 @@ export default function ContactPage({ data }) {
                 type="button"
                 onClick={() => addToPictureBook({ id: pic.id })}
               >
-                Add to Picture Book
+                Add
               </button>
             </PictureBookStyles>
           ))}

@@ -15,6 +15,8 @@ const TechStyles = styled.div`
     border-radius: 2px;
     padding: 0.5rem;
     background: var(--grey);
+    font-size: 2rem;
+    font-size: clamp(12px, 2rem, 25px);
     .count {
       background: white;
       padding: 2px 5px;

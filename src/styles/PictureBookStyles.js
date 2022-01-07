@@ -2,8 +2,6 @@ import styled from "styled-components"
 
 const PictureBookStyles = styled.div`
   display: grid;
-  grid-template-columns: 150px 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 1rem;
   position: relative;
   h2 {
@@ -15,17 +13,16 @@ const PictureBookStyles = styled.div`
     font-size: 2rem;
   }
   img {
-    grid-row: span 2;
-    height: 100px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
   }
   .remove {
     position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.5;
+    top: -1px;
+    right: -1px;
     color: var(--white);
+    box-shadow: none;
   }
 `
 

@@ -6,9 +6,14 @@ export const GridListStyles = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 `
 export const HomeGridStyles = styled.div`
+  --columns: 2;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
+
+  grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
+  @media (max-width: 800px) {
+    --columns: 1;
+  }
 `
 
 export const ItemsGridStyles = styled.div`
@@ -48,11 +53,11 @@ export const ItemStyles = styled.div`
   p {
     position: absolute;
     bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 1rem;
+    margin: 0;
+    transform: rotate(-2deg);
     background-color: var(--pink);
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-size: clamp(12px, 1.5rem, 18px);
   }
 `

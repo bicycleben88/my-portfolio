@@ -5,8 +5,8 @@ import background from "../assets/background.svg"
 const LogoStyles = styled.div`
   font-size: 6px;
   font-size: clamp(1px, 0.65vw, 8px);
-  width: 30em;
-  height: 18em;
+  width: 20em;
+  height: 15em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   margin: 0;
   --borderSize: 1em;
@@ -14,6 +14,7 @@ const LogoStyles = styled.div`
   background-size: 0.5em;
   border: var(--borderSize) solid white;
   display: flex;
+  transform: translateY(-3rem);
   .inner {
     margin: var(--borderSize);
     flex: 1;
@@ -22,53 +23,27 @@ const LogoStyles = styled.div`
     align-content: center;
   }
   h1 {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    align-items: center;
     margin: 0;
-    grid-gap: 0.5em;
     transform: translateY(0.5em);
-  }
-  .higginbotham {
-    font-size: 0.5rem;
-    letter-spacing: 0.2em;
-    transform: translateY(-0.15em);
-    text-shadow: 0.18em 0.18em 0 var(--purple);
-  }
-  .ben {
-    transform: scale(1.1);
-    display: block;
-    text-shadow: 0.18em 0.18em 0 var(--purple);
-    perspective: 100px;
   }
   .letter {
     font-size: 5em;
-    color: var(--red);
-    --scale: 1;
-    --rotate: -10deg;
-    --translateX: 0;
-    --translateY: 0;
-    --rotateX: 0deg;
-    transform: scale(var(--scale)) rotate(var(--rotate))
-      translateX(var(--translateX)) translateY(var(--translateY))
-      rotateX(var(--rotateX));
     display: inline-block;
     line-height: 1;
-    transition: transform 0.3s;
     text-transform: uppercase;
-    &.b {
-      --translateX: -0.05;
-    }
-    &.e {
-      --rotate: 2deg;
-      --scale: 1.4;
-      --translateX: 0.05em;
-      --translateY: -0.05em;
-    }
-    &.n {
-      --scale: 0.9;
-      --translateY: -0.1em;
-      --translateX: 0.1em;
+    text-shadow: 0.4rem 0.4rem 0 var(--purple);
+  }
+  .h {
+    transform: translateY(-0.15em);
+  }
+  .b {
+    transform: scale(1.1);
+    perspective: 100px;
+  }
+  @media (max-width: 850px) {
+    transform: none;
+    .letter {
+      text-shadow: 0.2rem 0.2rem 0 var(--purple);
     }
   }
 `
@@ -78,25 +53,12 @@ export default function Logo() {
     <LogoStyles>
       <div className="inner">
         <h1>
-          <span className="ben">
-            <span className="letter b">B</span>
-            <span className="letter e">e</span>
-            <span className="letter n">n</span>
-          </span>
-          <span className="higginbotham">
-            <span className="letter">h</span>
-            <span className="letter">i</span>
-            <span className="letter">g</span>
-            <span className="letter">g</span>
-            <span className="letter">i</span>
-            <span className="letter">n</span>
-            <span className="letter">b</span>
-            <span className="letter">o</span>
-            <span className="letter">t</span>
-            <span className="letter">h</span>
-            <span className="letter">a</span>
-            <span className="letter">m</span>
-          </span>
+          {/* <span className="b"> */}
+          <span className="letter b">B</span>
+          {/* </span> */}
+          {/* <span className="h"> */}
+          <span className="letter h">H</span>
+          {/* </span> */}
         </h1>
       </div>
     </LogoStyles>

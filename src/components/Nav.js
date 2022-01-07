@@ -12,7 +12,7 @@ const NavStyles = styled.nav`
     align-items: center;
     margin: 0;
     padding: 0;
-    margin-top: -6rem;
+    margin-top: -4rem;
     text-align: center;
     list-style: none;
   }
@@ -31,8 +31,42 @@ const NavStyles = styled.nav`
       transform: scale(1.1);
     }
   }
+  .logo {
+    a {
+      text-decoration: none;
+    }
+  }
   a {
     font-size: 2.25rem;
+    display: block;
+    @media (max-width: 850px) {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 850px) {
+    --columns: 4;
+    --gap: 1rem;
+    border-bottom: 2px solid var(--purple);
+    padding-bottom: 2rem;
+    ul {
+      grid-template-rows: auto auto;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      justify-items: center;
+      gap: var(--gap);
+    }
+    .logo {
+      order: 0;
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 500px) {
+    --columns: 2;
+    li {
+      .nav-text,
+      .hide-me {
+        display: none;
+      }
+    }
   }
 `
 
@@ -54,7 +88,7 @@ export default function Nav() {
             <span className="hide-me">x</span>
           </Link>
         </li>
-        <li>
+        <li className="logo">
           <Link to="/">
             <Logo />
           </Link>
