@@ -1,7 +1,7 @@
 import React from "react"
 import { ItemsGridStyles, ItemStyles } from "../styles/GridStyles"
 
-export default function ItemsGrid({ count }) {
+export default function LoadingGrid({ count }) {
   return (
     <ItemsGridStyles>
       {Array.from({ length: count }, () => (

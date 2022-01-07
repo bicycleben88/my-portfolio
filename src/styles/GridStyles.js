@@ -17,6 +17,7 @@ export const ItemsGridStyles = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 
+//home page projects, builds, and pics
 export const ItemStyles = styled.div`
   text-align: center;
   position: relative;
@@ -52,5 +53,6 @@ export const ItemStyles = styled.div`
     margin: 1rem;
     background-color: var(--pink);
     color: var(--white);
+    font-size: 1.2rem;
   }
 `

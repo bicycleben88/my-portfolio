@@ -1,5 +1,20 @@
 import { useState, useEffect } from "react"
 
+const gql = String.raw
+
+const details = gql`
+    name
+    _id
+    image {
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+    }
+`
+
 export default function useLatestData() {
   const [homeProjects, setHomeProjects] = useState()
   const [homeBuilds, setHomeBuilds] = useState()
@@ -12,22 +27,22 @@ export default function useLatestData() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        query: `
-                query {
-                    PageSettings(id: "BensPortfolio") {
-                    name
-                    project {
-                      name
-                    }
-                    bikePictures {
-                      name
-                    }
-                    miniBuild {
-                      name
-                    }
-                  }
-                }
-                `,
+        query: gql`
+          query {
+            PageSettings(id: "BensPortfolio") {
+              name
+              project {
+               ${details}
+              }
+              bikePictures {
+                ${details}
+              }
+              miniBuild {
+                ${details}
+              }
+            }
+          }
+        `,
       }),
     })
       .then(res => res.json())
