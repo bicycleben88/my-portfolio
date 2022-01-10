@@ -15,6 +15,7 @@ const ProjectStyles = styled.div`
   position: relative;
   box-shadow: 0 0 10px 1px var(--black);
   p {
+    padding: 3px;
     margin: 0;
   }
   img {

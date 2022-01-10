@@ -13,8 +13,15 @@ const BikeStyles = styled.div`
   grid-row: span 3;
   gap: 1rem;
   position: relative;
+  box-shadow: 0 0 10px 1px var(--black);
   p {
     margin: 0;
+    padding: 3px;
+  }
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
   }
 `
 
