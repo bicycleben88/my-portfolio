@@ -12,20 +12,27 @@ const ProjectStyles = styled.div`
   grid-template-rows: var(--rows, subgrid);
   grid-row: span 3;
   gap: 1rem;
+  position: relative;
+  box-shadow: 0 0 10px 1px var(--black);
   p {
     margin: 0;
+  }
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
   }
 `
 function SingleProject({ project }) {
   return (
     <ProjectStyles>
       <Link to={`/project/${project.slug.current}`}>
-        <h2>
-          <span className="span">{project.name}</span>
-        </h2>
+        <h3>
+          <span className="sticker">{project.name}</span>
+        </h3>
       </Link>
-      <p>{project.technologies.map(tech => tech.name).join(", ")}</p>
       <Image {...project.image} width={300} height={200} alt={project.name} />
+      <p>{project.technologies.map(tech => tech.name).join(", ")}</p>
     </ProjectStyles>
   )
 }
