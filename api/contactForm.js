@@ -1,13 +1,28 @@
-const nodemailer = require("nodemailer")
-
-const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: 587,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
-  },
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
+
+const nodemailer = require("nodemailer")
+const mg = require("nodemailer-mailgun-transport")
+
+const auth = {
+  auth: {
+    api_key: process.env.GATSBY_MG_API,
+    domain: process.env.GATSBY_MG_DOMAIN,
+  },
+}
+
+const transporter = nodemailer.createTransport(mg(auth))
+
+// console.log(transporter.transporter)
+// const transporter = nodemailer.createTransport({
+//   host: process.env.MAIL_HOST,
+//   port: 587,
+//   auth: {
+//     user: process.env.MAIL_USER,
+//     pass: process.env.MAIL_PASS,
+//   },
+// })
 
 function generateContactEmail({ pictureBook, name }) {
   return `
@@ -62,15 +77,24 @@ export default async function handler(req, res) {
     })
   }
 
-  await transporter.sendMail({
-    from: "Ben Higginbotham's Portfolio <benny_boi@example.com>",
-    to: `${body.name} <${body.email}>, contact@example.com`,
-    subject: "Contact Form Confirmation",
-    html: generateContactEmail({
-      pictureBook: body.pictureBook,
-      name: body.name,
-    }),
-  })
+  const response = await transporter.sendMail(
+    {
+      from: "Ben Higginbotham's Portfolio",
+      to: [`${body.email}`, `${process.env.EMAIL}`],
+      subject: "Contact Form Confirmation",
+      html: generateContactEmail({
+        pictureBook: body.pictureBook,
+        name: body.name,
+      }),
+    },
+    (err, info) => {
+      console.log("made it to the callback function")
+      if (err) console.log({ err })
+      else console.log({ info })
+    }
+  )
+
+  await console.log(response)
 
   await res.status(200)
   await res.json({
