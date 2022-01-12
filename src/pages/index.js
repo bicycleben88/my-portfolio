@@ -16,7 +16,7 @@ const HomePageStyles = styled.div`
 `
 function HomeProjects({ projects }) {
   return (
-    <div>
+    <div className="sampler">
       <Link to="/projects">
         <h2>Projects</h2>
       </Link>
@@ -30,7 +30,7 @@ function HomeProjects({ projects }) {
 
 function HomePics({ pics }) {
   return (
-    <div>
+    <div className="sampler">
       <Link to="/bikes">
         <h2>Bike Pics</h2>
       </Link>
@@ -44,7 +44,7 @@ function HomePics({ pics }) {
 
 function HomeBuilds({ builds }) {
   return (
-    <div>
+    <div className="sampler">
       <Link to="/builds">
         <h2>Mini Builds</h2>
       </Link>

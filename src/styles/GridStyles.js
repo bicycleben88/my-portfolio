@@ -9,7 +9,10 @@ export const HomeGridStyles = styled.div`
   --columns: 2;
   display: grid;
   gap: 1rem;
-
+  .sampler {
+    border: 1px solid var(--grey);
+    padding: 0.5rem;
+  }
   grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
   @media (max-width: 800px) {
     --columns: 1;
