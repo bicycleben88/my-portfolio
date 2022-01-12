@@ -1,14 +1,19 @@
 import { createGlobalStyle } from "styled-components"
 
-import font from "../assets/FuzzyBubbles-Regular.ttf"
+import headerFont from "../assets/FuzzyBubbles-Regular.ttf"
+import font from "../assets/Nunito-Black.ttf"
 
 const Typography = createGlobalStyle`
   @font-face {
     font-family: 'Fuzzy Bubbles';
+    src: url(${headerFont});
+  }
+  @font-face {
+    font-family: 'Nunito';
     src: url(${font});
   }
   html {
-    font-family: 'Fuzzy Bubbles', cursive;
+    font-family: 'Nunito'
     color: var(--black);
   }
   p, li {
@@ -17,6 +22,7 @@ const Typography = createGlobalStyle`
   h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
     margin: 0;
+    font-family: 'Fuzzy Bubbles', cursive;
   }
   a {
     color: var(--black);

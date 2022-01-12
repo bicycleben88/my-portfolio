@@ -38,6 +38,7 @@ const NavStyles = styled.nav`
   }
   a {
     font-size: 2.25rem;
+    font-family: "Fuzzy Bubbles", cursive;
     display: block;
     @media (max-width: 850px) {
       font-size: 1.5rem;

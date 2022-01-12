@@ -12,17 +12,16 @@ const auth = {
   },
 }
 
-const transporter = nodemailer.createTransport(mg(auth))
+// const transporter = nodemailer.createTransport(mg(auth))
 
-// console.log(transporter.transporter)
-// const transporter = nodemailer.createTransport({
-//   host: process.env.MAIL_HOST,
-//   port: 587,
-//   auth: {
-//     user: process.env.MAIL_USER,
-//     pass: process.env.MAIL_PASS,
-//   },
-// })
+const transporter = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: 587,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+})
 
 function generateContactEmail({ pictureBook, name }) {
   return `
@@ -77,7 +76,7 @@ export default async function handler(req, res) {
     })
   }
 
-  const response = await transporter.sendMail(
+  await transporter.sendMail(
     {
       from: "Ben Higginbotham's Portfolio",
       to: [`${body.email}`, `${process.env.EMAIL}`],
@@ -93,8 +92,6 @@ export default async function handler(req, res) {
       else console.log({ info })
     }
   )
-
-  await console.log(response)
 
   await res.status(200)
   await res.json({
