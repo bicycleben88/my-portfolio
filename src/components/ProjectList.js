@@ -25,7 +25,6 @@ const ProjectStyles = styled.div`
   }
 `
 function SingleProject({ project }) {
-  console.log({ project })
   return (
     <ProjectStyles>
       <Link to={`/project/${project.slug.current}`}>

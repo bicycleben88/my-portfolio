@@ -5,9 +5,10 @@ import Image from "gatsby-plugin-sanity-image"
 import SEO from "../components/SEO"
 
 const SingleProjectStyles = styled.div`
+  --minimum: 400px;
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--minimum), 1fr));
   position: relative;
   img {
     grid-row: span 3;
@@ -15,8 +16,13 @@ const SingleProjectStyles = styled.div`
   a {
     text-decoration: none;
   }
-  .sticker:hover {
-    transform: scale(1.1) rotate(8deg);
+  @media (max-width: 950px) {
+    .sticker {
+      top: 5rem;
+    }
+  }
+  @media (max-width: 500px) {
+    --minimum: 200px;
   }
 `
 
@@ -26,7 +32,7 @@ export default function SingleProjectPage({ data }) {
     <>
       <SEO title={project.name} image={project.image?.asset?.url} />
       <SingleProjectStyles>
-        <h2>{project.name}</h2>
+        <h2 className="center">{project.name}</h2>
         <Image {...project.image} alt={project.name} />
         <Link to={project.url} className="sticker">
           <span>Live Site!</span>
