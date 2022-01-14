@@ -106,7 +106,7 @@ export default function ContactPage({ data }) {
             </PictureBookStyles>
           ))}
         </fieldset>
-        <fieldset className="template" disabled={loading}>
+        <fieldset className="picture-book" disabled={loading}>
           <legend>Picture Book</legend>
           <PictureBook
             pictureBook={pictureBook}
@@ -115,7 +115,7 @@ export default function ContactPage({ data }) {
           />
         </fieldset>
         <fieldset disabled={loading}>
-          <legend>Email Me your contact info & favorite pictures</legend>
+          <legend>Email me your contact info & favorite pictures</legend>
           {error && <p>{error}</p>}
           <button type="submit" disabled={loading}>
             {loading ? "Sending Email..." : "Send Email"}
