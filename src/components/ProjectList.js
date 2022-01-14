@@ -25,6 +25,7 @@ const ProjectStyles = styled.div`
   }
 `
 function SingleProject({ project }) {
+  console.log({ project })
   return (
     <ProjectStyles>
       <Link to={`/project/${project.slug.current}`}>
@@ -33,7 +34,7 @@ function SingleProject({ project }) {
         </h3>
       </Link>
       <Image {...project.image} width={300} height={200} alt={project.name} />
-      <p>{project.technologies.map(tech => tech.name).join(", ")}</p>
+      <p>{project.description.substring(0, 30)}...</p>
     </ProjectStyles>
   )
 }

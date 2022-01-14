@@ -23,6 +23,7 @@ export const query = graphql`
       nodes {
         name
         id
+        description
         slug {
           current
         }
