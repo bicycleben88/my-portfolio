@@ -41,20 +41,15 @@ export default function BuildsList({ builds }) {
       <h2>Mini Builds</h2>
       <p>
         Welcome to my mini builds page. What's a mini build, you say? I'll tell
-        you!
+        you! Mini builds are small. They don't use libraries or frameworks, just
+        HTML, CSS, and JavaScript. Click on any one of them to learn a little
+        bit more about them. You'll find descriptions as well as links to
+        youtube and codepen
       </p>
       <p>
-        Mini builds are small. They don't use libraries or frameworks, just
-        HTML, CSS, and JavaScript.
-      </p>
-      <p>
-        Click on any one of them to learn a little bit more about them. You'll
-        find descriptions as well as links to youtube and codepen
-      </p>
-      <p>
-        ...or see them all in one place in{" "}
+        ...or see them all in one place in my{" "}
         <a href="https://www.youtube.com/playlist?list=PLjYC3ZkfhqCrYVFXyiULIr4MmmGUSdWMY">
-          my youtube playlist
+          youtube playlist
         </a>{" "}
         or <a href="https://codepen.io/collection/OLEqme">codepen collection</a>
       </p>

@@ -20,17 +20,22 @@ const MiniBuildStyles = styled.div`
     background-color: var(--grey);
     padding: 1rem 0;
   }
+  @media (max-width: 500px) {
+    img {
+      height: 200px;
+    }
+  }
 `
 
 export default function MiniBuild({ data }) {
   const { singleBuild } = data
   return (
     <MiniBuildStyles>
-      <Image {...singleBuild.image} />
       <h2>{singleBuild.name}</h2>
+      <Image {...singleBuild.image} />
+      <a href={singleBuild.video}>Video walkthru</a>
+      <a href={singleBuild.url}>Live on codepen</a>
       <p>{singleBuild.description}</p>
-      <a href={singleBuild.video}>Watch a video walkthru</a>
-      <a href={singleBuild.url}>View the code in live on codepen</a>
     </MiniBuildStyles>
   )
 }
