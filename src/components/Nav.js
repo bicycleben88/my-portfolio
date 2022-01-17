@@ -83,9 +83,9 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/about">
-            <span className="nav-text">Learn a lil'</span>
-            About Me
+          <Link to="/blogs">
+            <span className="nav-text">Read My</span>
+            Blog
             <span className="hide-me">x</span>
           </Link>
         </li>
