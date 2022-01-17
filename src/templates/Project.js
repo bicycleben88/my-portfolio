@@ -16,6 +16,10 @@ const SingleProjectStyles = styled.div`
   a {
     text-decoration: none;
   }
+  li {
+    margin-bottom: 0.5rem;
+    list-style: none;
+  }
   @media (max-width: 950px) {
     .sticker {
       top: 5rem;
@@ -34,13 +38,18 @@ export default function SingleProjectPage({ data }) {
       <SingleProjectStyles>
         <h2 className="center">{project.name}</h2>
         <Image {...project.image} alt={project.name} />
-        <Link to={project.url} className="sticker">
-          <span>Live Site!</span>
-        </Link>
+        <a href={project.url} className="sticker" target="#">
+          Live Site!
+        </a>
         <ul>
           <li>
-            <Link to={project.video}>
-              <span className="mark">Video Walkthru</span>
+            <a href={project.video} className="mark" target="#">
+              Video Walkthru
+            </a>
+          </li>
+          <li>
+            <Link to={`/${project.slug.current}`}>
+              <span className="mark">Blog, Full Desctription</span>
             </Link>
           </li>
           {project.technologies.map(tech => (
@@ -60,6 +69,9 @@ export const query = graphql`
       id
       description
       url
+      slug {
+        current
+      }
       video
       technologies {
         name
