@@ -128,8 +128,6 @@ async function turnBuildsIntoPages({ graphql, actions }) {
 }
 
 async function turnBlogsIntoPages({ graphql, actions }) {
-  console.log("turn blogggs into pages")
-
   const { data } = await graphql(`
     query {
       blogs: allMarkdownRemark {
@@ -190,7 +188,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
-
     createNodeField({
       node,
       name: `slug`,
