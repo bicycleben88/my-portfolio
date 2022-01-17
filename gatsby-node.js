@@ -4,6 +4,7 @@ require("dotenv").config({
 
 const path = require(`path`)
 const fetch = require("isomorphic-fetch")
+const { createFilePath } = require("gatsby-source-filesystem")
 
 async function turnProjectsIntoPages({ graphql, actions }) {
   const projectTemplate = path.resolve("./src/templates/Project.js")
@@ -126,6 +127,34 @@ async function turnBuildsIntoPages({ graphql, actions }) {
   )
 }
 
+async function turnBlogsIntoPages({ graphql, actions }) {
+  console.log("turn blogggs into pages")
+
+  const { data } = await graphql(`
+    query {
+      blogs: allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  data.blogs.edges.forEach(blog => {
+    actions.createPage({
+      path: blog.node.fields.slug,
+      component: path.resolve("./src/templates/Blog.js"),
+      context: {
+        slug: blog.node.fields.slug,
+      },
+    })
+  })
+}
+
 async function fetchSimpsonsEpisodesAndTurnIntoNodes({
   actions,
   createNodeId,
@@ -156,11 +185,26 @@ exports.sourceNodes = async params => {
   await Promise.all([fetchSimpsonsEpisodesAndTurnIntoNodes(params)])
 }
 
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
+
 exports.createPages = async params => {
   await Promise.all([
     turnProjectsIntoPages(params),
     turnTechnologiesIntoPages(params),
     turnBikePicsIntoPages(params),
     turnBuildsIntoPages(params),
+    turnBlogsIntoPages(params),
   ])
 }
