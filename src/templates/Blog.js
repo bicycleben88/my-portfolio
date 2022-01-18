@@ -1,13 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
+
+const BlogStyles = styled.div`
+  overflow: auto;
+`
 
 export default function Blog({ data }) {
   const { blog } = data
   return (
-    <div>
+    <BlogStyles>
       <h1>{blog.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: blog.html }} />
-    </div>
+    </BlogStyles>
   )
 }
 
