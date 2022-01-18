@@ -7,6 +7,12 @@ const BlogStyles = styled.div`
   h2 {
     text-align: center;
   }
+  pre {
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.75em;
+  }
 `
 
 export default function Blog({ data }) {
