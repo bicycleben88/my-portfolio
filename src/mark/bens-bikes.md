@@ -7,19 +7,11 @@ url: https://bens-bikes-frontend.vercel.app/
 primaryTech: React.js - JavaScript framework to manage data in state & to employ JS methods and functions| Ruby on Rails - ORM to scaffold back end API| CSS-Components - Styling tool to add custom design to components| Click link for full tech specs & my personal video walkthru of the code!
 ---
 
-### Git Urls:
+**Front End Tech:** React.js, JavaScript, CSS Components, JWT, Stripe
 
-[Front End](https://github.com/bicycleben88/bens_bikes_frontend), [Back End](https://github.com/bicycleben88/bens_bikes_backend)
+**Back End Tech:** Ruby on Rails, PostgreSQL, JWT, BCrypt, Stripe
 
-## Technologies:
-
-### Front End:
-
-React.js, JavaScript, CSS Components, JWT
-
-### Back End:
-
-Ruby on Rails, PostgresQL, JWT, BCrypt
+**Git Urls:** [Front End](https://github.com/bicycleben88/bens_bikes_frontend), [Back End](https://github.com/bicycleben88/bens_bikes_backend)
 
 Boy do I love bikes. Apart from all the adaptations of growing up and trying to find a place in this world riding bikes has given me something to do, if nothing else. I ride bikes to the grocery store, to the park, to the next town over, and even to the other side of the country. So, why not build a web app filled with the thing that I love? Web development came along later in life. Boy do I like it, too. I married these two facets of my life to create Ben’s Bikes. Along the way I took a tutorial on advanced React features, think custom hooks and higher level components, and I wanted to flex my skills a little by showing off a few of them. Read further to learn a little bit more about this project.
 

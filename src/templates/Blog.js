@@ -4,13 +4,16 @@ import styled from "styled-components"
 
 const BlogStyles = styled.div`
   overflow: auto;
+  h2 {
+    text-align: center;
+  }
 `
 
 export default function Blog({ data }) {
   const { blog } = data
   return (
     <BlogStyles>
-      <h1>{blog.frontmatter.title}</h1>
+      <h2>{blog.frontmatter.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: blog.html }} />
     </BlogStyles>
   )
