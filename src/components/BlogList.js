@@ -40,7 +40,7 @@ function SingleBlog({ blog }) {
       <Link to={blog.fields.slug}>
         <h2>{blog.frontmatter.title}</h2>
       </Link>
-      <p>{blog.excerpt}</p>
+      <p>{blog.frontmatter.about}</p>
     </SingleBlogStyles>
   )
 }
