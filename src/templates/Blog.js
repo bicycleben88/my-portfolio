@@ -12,6 +12,7 @@ const BlogStyles = styled.div`
     color: white;
     padding: 0.5rem;
     font-size: 0.75em;
+    overflow: auto;
   }
 `
 
