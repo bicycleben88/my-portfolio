@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 const BlogStyles = styled.div`
   overflow: auto;
@@ -19,10 +20,13 @@ const BlogStyles = styled.div`
 export default function Blog({ data }) {
   const { blog } = data
   return (
-    <BlogStyles>
-      <h2>{blog.frontmatter.title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: blog.html }} />
-    </BlogStyles>
+    <>
+      <SEO title={blog.frontmatter.title} />
+      <BlogStyles>
+        <h2>{blog.frontmatter.title}</h2>
+        <div dangerouslySetInnerHTML={{ __html: blog.html }} />
+      </BlogStyles>
+    </>
   )
 }
 
