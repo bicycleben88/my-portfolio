@@ -3,13 +3,8 @@ import React from "react"
 import styled from "styled-components"
 
 const SingleBlogStyles = styled.div`
-  --tall: 150px;
-  box-shadow: 0 0 5px 1px var(--black);
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1 1 var(--tall);
+  border-bottom: 2px solid var(--grey);
+  margin-bottom: 1rem;
   h2 {
     font-size: 2.5rem;
   }
@@ -17,14 +12,14 @@ const SingleBlogStyles = styled.div`
     margin: 0;
   }
   @media (max-width: 400px) {
-    --tall: 200px;
     h2 {
-      font-size: 2rem;
+      font-size: 1.7rem;
       text-align: center;
     }
     p {
-      line-height: 22px;
+      line-height: 1.5rem;
       margin-top: 5px;
+      font-size: 1.3rem;
     }
   }
 `

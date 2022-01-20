@@ -8,6 +8,9 @@ export default function BlogPage({ data }) {
   return (
     <>
       <SEO title="blogs" />
+      <h2 className="center" style={{ marginBottom: "3rem" }}>
+        Blog Posts
+      </h2>
       <BlogList blogs={blogs} />
     </>
   )
