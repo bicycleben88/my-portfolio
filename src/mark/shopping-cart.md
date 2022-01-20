@@ -6,6 +6,8 @@ primaryTech: React.js, Ruby on Rails
 
 What’s an e-commerce app without a shopping cart? A bad app(le). A shopping cart is where a user can Create a cart item, Read the items in the cart, Update the quantity of a cart item, & Delete a cart item if the feeling just isn’t right. To create a shopping part it's important to understand what a cart item is, and how the frontend and backend communicate to perform all the CRUD operations.
 
+I have videos that show how to [set up a shopping cart](https://www.youtube.com/watch?v=66FjOAFSN9A&list=PLjYC3ZkfhqCpDJl-34_mycn5KZcrrsPKR&index=4) and how to [add multiple cart items](https://www.youtube.com/watch?v=NyQ6HpfxcUk&list=PLjYC3ZkfhqCpDJl-34_mycn5KZcrrsPKR&index=5).
+
 A cart item is its own model, and it requires its own schema. I use Ruby on Rails to create the cart item model, which includes a reference to an item (e.g. a product), a reference to a user, & a quantity. In a bit, the frontend will send the backend id's from the user and the product to create a cart item.
 
 ```
