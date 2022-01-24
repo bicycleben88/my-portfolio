@@ -6,6 +6,7 @@ import { HomeGridStyles } from "../styles/GridStyles"
 import LoadingGrid from "../components/LoadingGrid"
 import ItemGrid from "../components/ItemGrid"
 import styled from "styled-components"
+import ContactBar from "../components/ContactBar"
 
 const HomePageStyles = styled.div`
   @media (max-width: 850px) {
@@ -14,6 +15,7 @@ const HomePageStyles = styled.div`
     }
   }
 `
+
 function HomeProjects({ projects }) {
   return (
     <div className="sampler">
@@ -63,6 +65,7 @@ export default function HomePage() {
     <>
       <SEO title="Home" />
       <HomePageStyles>
+        <ContactBar />
         <h1 className="center">Ben Higginbotham</h1>
         <p>
           I'm a software engineer. I can write code in JavaScript. 'been doing
