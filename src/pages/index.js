@@ -9,6 +9,9 @@ import styled from "styled-components"
 import ContactBar from "../components/ContactBar"
 
 const HomePageStyles = styled.div`
+  h1 {
+    margin-top: 2.5rem;
+  }
   @media (max-width: 850px) {
     h1 {
       font-size: 3rem;
