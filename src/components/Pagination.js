@@ -24,6 +24,18 @@ const PaginationStyles = styled.div`
       color: var(--grey);
     }
   }
+  a:last-child {
+    border: none;
+  }
+  @media (max-width: 800px) {
+    & > * {
+      font-size: 0.75em;
+      padding: 0.5rem;
+    }
+    .hide {
+      display: none;
+    }
+  }
 `
 
 export default function Pagination({
@@ -42,7 +54,7 @@ export default function Pagination({
   return (
     <PaginationStyles>
       <Link to={`${base}/${prevPage}`} disabled={!hasPrevPage}>
-        &#8592; Back
+        &#8592; <span className="hide">Back</span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
@@ -54,7 +66,7 @@ export default function Pagination({
         </Link>
       ))}
       <Link to={`${base}/${nextPage}`} disabled={!hasNextPage}>
-        Next &#8594;
+        <span className="hide">Next</span> &#8594;
       </Link>
     </PaginationStyles>
   )

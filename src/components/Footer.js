@@ -17,7 +17,7 @@ const FooterStyles = styled.div`
     --columns: 1;
   }
 `
-const Footer = props => {
+export default function Footer() {
   return (
     <FooterStyles>
       <h5>(352) 642-6701</h5>
@@ -34,5 +34,3 @@ const Footer = props => {
     </FooterStyles>
   )
 }
-
-export default Footer
