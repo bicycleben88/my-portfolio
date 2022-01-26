@@ -4,9 +4,38 @@ about: I make the home page of an e-commerce app look super slick with paginatio
 primaryTech: React.js, Ruby on Rails
 ---
 
-### React front end
+If I had a million unique gemstones to sell on my e-commerce web app, then I wouldn’t have much space on my home page to display them all. Pagination separates those million little gemstones and displays only a few at a time. With React and Ruby on Rails, pagination requires getting a count of all the items in inventory, dynamically routing & creating pages, and displaying the correct items on each page.
 
-Render \<ItemsPage> component for routes "/", "/items", & "/items/:id"
+How many pages will I need to evenly split up all the items in inventory? Count the total number of items and divide the count by however many items each page will display. On the backend, to get the count, add the following line to routes.rb, which directs a Get request from the end point /items_count to a function called count.
+
+```
+ get "/items_count", to: "items#count"
+```
+
+In the file items_controller.rb the function count uses a method, count, on the model Item and returns the total count of all the items in inventory.
+
+```
+ def count
+    @count = Item.count
+    render json: @count
+ end
+```
+
+On the frontend, create a component, Pagination, and make a Get request using fetch to the end point the backend is now equipped to handle. The backend sends a response with the count of all of the items in inventory, which I store in state.
+
+```
+  const getCount = async () => {
+    const response = await fetch(`${url}/items_count`);
+    const data = await response.json();
+    await setItemCount(data);
+  };
+
+  React.useEffect(() => {
+    getCount();
+  }, []);
+```
+
+Now that I have a count, I can determine the number of pages to create and create routes to each one. I don’t want to hard code each page or routes for each page. Instead I will dynamically create and route pages, telling React how to figure what page it’s on. React Router, the service I use to navigate between pages, comes with a component, Switch, that has child components, Route, which render components that correspond to specific url endpoints. Since I want to add pagination to my home page, I tell Route to render the component ItemsPage any time the url ends with “/”, “/items”, or “/items/:id”. The last route, “/items/:id”, is how React will know what page to render.
 
 ```
  <Route
@@ -14,6 +43,10 @@ Render \<ItemsPage> component for routes "/", "/items", & "/items/:id"
     component={ItemsPage}
  />
 ```
+
+### React front end
+
+Render \<ItemsPage> component for routes "/", "/items", & "/items/:id"
 
 Create \<Pagination> component
 
@@ -27,20 +60,6 @@ Create \<Pagination> component
   const [itemCount, setItemCount] = React.useState();
   const perPage = 2;
   const pageCount = Math.ceil(itemCount / perPage);
-```
-
-- make get request to API that will return a count of items in the inventory
-
-```
-  const getCount = async () => {
-    const response = await fetch(`${url}/items_count`);
-    const data = await response.json();
-    await setItemCount(data);
-  };
-
-  React.useEffect(() => {
-    getCount();
-  }, []);
 ```
 
 - return \<Link>s to next or previous page, disabling link when on first or last page
@@ -109,25 +128,6 @@ Create \<Items> component
 ```
 
 ### Ruby on Rails back end
-
-Create API endpoint that returns a count of the items in the inventory
-
-- in routes.rb add route that runs the function 'count' when it recieves a get request from ".../items_count"
-
-```
- get "/items_count", to: "items#count"
-```
-
-Write count function
-
-- in items_controller.rb use method .count on Item model to return the total number of items in the inventory
-
-```
- def count
-    @count = Item.count
-    render json: @count
- end
-```
 
 Add 'will_paginate' to Gemfile
 
