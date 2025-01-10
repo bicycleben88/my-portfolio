@@ -20,7 +20,7 @@ const FooterStyles = styled.div`
 export default function Footer() {
   return (
     <FooterStyles>
-      <h5>(352) 642-6701</h5>
+      <h5>(862) 424-0004</h5>
       <a
         href="https://www.linkedin.com/in/benjamin-alt-higginbotham/"
         target="#"

@@ -71,22 +71,27 @@ export default function HomePage() {
         <ContactBar />
         <h1 className="center">Ben Higginbotham</h1>
         <p>
-          I'm a software engineer. I can write code in JavaScript. 'been doing
-          that since 2020. I'm a cycling nerd. I can ride bikes in lycra. 'been
-          doing that since 2007. I work professionally for a company called
-          KnowCap and I work freelance.{" "}
+          I’m an ex-bartender and current average cyclist who put down cocktails
+          and picked up computers. A bootcamp taught me front-end web
+          development in 2020, when I mastered HTML, CSS, and JavaScript. I know
+          React and Gatsby, the fancy frameworks and libraries used to make this
+          slick site.{" "}
           <a href="https://www.prestonmitchum.com" target="#">
-            Here's a recent build of mine
-          </a>
-          .
+            Here's a recent build of mine.
+          </a>{" "}
+          In 2022 I took a role providing application support for core banking
+          software distributed to 100+ credit unions and 25 SaaS clients. It’s
+          as interesting as it sounds. In 2024 I went back to school to study
+          Computer Science and I’m happy to report that so far that’s going
+          really well. Will I beat AI to a job before I graduate? .
         </p>
         <p>
-          You can <Link to="/projects">see all of projects</Link>, where I have
-          both full stack and single page, front end web apps. There are{" "}
-          <Link to="/builds">mini builds here</Link>, where I use vanilla
-          JavaScript to create really neat front end features. Don't forget{" "}
-          <Link to="/bikes">to look at some pictures</Link> of a cross country
-          bicycle trip I took. Below is a little sample of my work.
+          You can <Link to="/projects">see all of my projects</Link>, where I
+          have both full stack and single page, front-end web applications.
+          There are <Link to="/builds">mini builds here</Link>, where I use
+          vanilla JavaScript to create really neat front-end features. Don't
+          forget <Link to="/bikes">to look at some pictures</Link> of a cross
+          country bicycle trip I took. Below is a little sample of my work.
         </p>
       </HomePageStyles>
       <HomeGridStyles>

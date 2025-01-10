@@ -27,7 +27,7 @@ const ContactBarStyles = styled.div`
 export default function ContactBar() {
   return (
     <ContactBarStyles>
-      <h5 className="phone">(352) 642-6701</h5>
+      <h5 className="phone">(862) 424-0004</h5>
       <a
         href="https://www.linkedin.com/in/benjamin-alt-higginbotham/"
         target="#"
