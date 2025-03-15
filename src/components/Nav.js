@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Logo from "./Logo"
 
 const NavStyles = styled.nav`
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr auto 1fr 1fr;
@@ -61,6 +61,7 @@ const NavStyles = styled.nav`
     }
   }
   @media (max-width: 500px) {
+    margin-bottom: 2rem;
     --columns: 2;
     li {
       .nav-text,
