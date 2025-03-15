@@ -15,12 +15,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${background});
-    background-size: 50px;
-    background-attachment: fixed;
     font-size: 10px;
   }
-
+ 
   body {
     font-size: 2rem;
   }
