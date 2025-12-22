@@ -6,13 +6,11 @@ import ThemeToggle from "./ThemeToggle"
 
 const NavStyles = styled.nav`
   position: relative;
-  /* 1. Making the bar dark in light mode for contrast */
   background: var(--dark);
   padding: 2rem;
   margin-bottom: 4rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
-  /* 2. Adding the grit texture to the dark bar */
   &::before {
     content: "";
     position: absolute;
@@ -21,14 +19,14 @@ const NavStyles = styled.nav`
     width: 100%;
     height: 100%;
     filter: url(#grit);
-    opacity: 0.4; /* Slightly higher opacity to see it on the dark background */
+    opacity: 0.4;
     pointer-events: none;
     z-index: 0;
   }
 
   ul {
     position: relative;
-    z-index: 1; /* Keep text above the grit */
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr auto 1fr 1fr auto;
     grid-gap: 2rem;
@@ -50,10 +48,9 @@ const NavStyles = styled.nav`
       letter-spacing: 2px;
     }
 
-    /* 3. FIXING HIDE-ME: Making the 'x' visible and yellow */
     .hide-me {
       display: block;
-      visibility: visible; /* Changed from hidden */
+      visibility: visible;
       font-size: 1.5rem;
       color: var(--yellow);
       font-family: "Fuzzy Bubbles", cursive;
@@ -66,9 +63,6 @@ const NavStyles = styled.nav`
 
   .logo {
     transform: rotate(-2deg);
-    /* Ensure the logo is visible on dark. 
-       If your Logo is an image/SVG, you might need filter: invert(1); */
-    filter: brightness(0) invert(1);
   }
 
   a {
@@ -76,7 +70,6 @@ const NavStyles = styled.nav`
     font-family: "Fuzzy Bubbles", cursive;
     display: block;
     text-decoration: none;
-    /* 4. Using light text on the dark background */
     color: var(--light);
 
     &:hover {
@@ -84,7 +77,6 @@ const NavStyles = styled.nav`
     }
   }
 
-  /* Responsive stacking */
   @media (max-width: 950px) {
     ul {
       grid-template-columns: repeat(3, 1fr);
