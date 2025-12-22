@@ -7,9 +7,8 @@ import ThemeToggle from "./ThemeToggle"
 const NavStyles = styled.nav`
   position: relative;
   background: var(--dark);
-  padding: 2rem;
-  margin-bottom: 4rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  margin-bottom: 3rem;
 
   &::before {
     content: "";
@@ -21,69 +20,74 @@ const NavStyles = styled.nav`
     filter: url(#grit);
     opacity: 0.4;
     pointer-events: none;
-    z-index: 0;
   }
 
   ul {
     position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr auto 1fr 1fr auto;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     align-items: center;
+    list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
-    list-style: none;
   }
 
-  li {
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light);
+    font-family: Impact, sans-serif;
+    font-size: clamp(1.4rem, 2vw, 2.2rem);
+    line-height: 1.1;
     transition: transform 0.2s ease;
 
-    .nav-text {
-      font-size: 1.1rem;
-      display: block;
-      color: var(--lightGrey);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .hide-me {
-      display: block;
-      visibility: visible;
-      font-size: 1.5rem;
-      color: var(--yellow);
-      font-family: "Fuzzy Bubbles", cursive;
-    }
-
     &:hover {
+      color: var(--yellow);
       transform: translateY(-2px);
     }
+  }
+
+  .nav-text {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--lightGrey);
+    letter-spacing: 1px;
+    margin: 0.3rem 0;
+  }
+
+  .hide-me {
+    font-family: Impact, sans-serif;
+    font-size: 0.9rem;
+    color: var(--yellow);
+    display: block;
+    visibility: visible;
   }
 
   .logo {
     transform: rotate(-2deg);
   }
 
-  a {
-    font-size: 2rem;
-    font-family: "Fuzzy Bubbles", cursive;
-    display: block;
-    text-decoration: none;
-    color: var(--light);
-
-    &:hover {
-      color: var(--yellow);
-    }
-  }
-
-  @media (max-width: 950px) {
+  @media (max-width: 1000px) {
     ul {
       grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem 1rem;
     }
     .logo {
       grid-column: 1 / -1;
       order: -1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      grid-template-columns: 1fr 1fr;
+    }
+    a {
+      font-size: 1.4rem;
     }
   }
 `

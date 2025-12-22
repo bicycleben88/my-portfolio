@@ -74,7 +74,7 @@ export const ItemStyles = styled.div`
     filter: url(#grit);
     padding: 0.5rem 1.5rem;
     margin: 0;
-    font-family: "Fuzzy Bubbles", cursive;
+    font-family: Impact, sans-serif;
     font-size: clamp(1.4rem, 2vw, 2.2rem);
     white-space: nowrap;
     z-index: 2;

@@ -15,9 +15,10 @@ This document summarizes the transition from the "Boxed Neon" layout to the "Wid
   - Neutrals: `--dark: #000000`, `--lightGrey: #d8d8d8`
   - Background: Full-window image with `0.12` opacity fixed to the viewport.
 - **Background Centering**: Updated `background-position` to `center center` to ensure the heart of the image remains visible on large displays (1400x1800) and mobile devices alike.
-- **Editorial Typography**:
-  - Headers: _Fuzzy Bubbles_ (editorial tilt).
-  - Body: _Nunito_ (improved line-height for readability).
+- **Native Typography Pivot**:
+  - **Headline Strategy**: Swapped 'Fuzzy Bubbles' for `Impact`. This provides a heavy, compressed editorial punch that reacts better to the grit filter.
+  - **Body Text Strategy**: Swapped 'Nunito' for `Georgia`. The transition to a serif font elevates the "magazine" feel and improves long-form readability.
+  - **Accent Strategy**: Implemented `Courier New` for navigation subtext and metadata to evoke a "typewriter/draft" aesthetic.
   - **Highlighter Effect**: Updated `<mark>` tags to use the grit filter and yellow background.
 
 ## 3. Theming & Dark Mode (`ThemeToggle.js`)
@@ -30,17 +31,29 @@ This document summarizes the transition from the "Boxed Neon" layout to the "Wid
 ### Navigation (`Nav.js`)
 
 - **6-Column Grid**: Rearranged to fit [Link, Link, Logo, Link, Link, Toggle].
-- **High Contrast Bar**: Set the navigation background to `var(--dark)` in all modes. This ensures the bar is a distinct editorial element.
-- **Restored Markers**: Enabled visibility for `.hide-me` spans, styling them as yellow "x" accents to guide the eye.
-- **Visual Stability**: Applied the grit filter via a `::before` pseudo-element to handle texture without causing component disappearance.
+- **High Contrast Bar**: Set the navigation background to `var(--dark)` in all modes to ensure the bar is a distinct editorial element.
+- **Layout Correction**: Switched Navigation links to `flex-direction: column` to ensure vertical stacking of metadata (`.nav-text`) and markers (`.hide-me`).
+- **Restored Markers**: Enabled visibility for `.hide-me` spans, styling them as yellow "x" accents in the `Impact` font to align with the editorial aesthetic.
+- **Fluid Typography**: Implemented `clamp()` logic for navigation links to ensure text scales harmoniously between mobile and large desktop displays.
 
 ### Logo Overhaul (`Logo.js`)
 
 - **Asset Migration**: Replaced legacy `<h1>` initials with `logo.svg` for a cleaner, graphical brand identity.
-- **High-Contrast Framing**: Refactored `LogoStyles` to use a solid white background within the `.inner` container, ensuring the black SVG is perfectly visible.
-- **Filter Removal**: Deleted the `brightness/invert` filter from the `.logo` class in `Nav.js` to prevent the entire logo box from becoming washed out on the dark navigation bar.
+- **High-Contrast Framing**: Refactored `LogoStyles` to use a solid white background within the `.inner` container, ensuring the black SVG is perfectly visible against the dark nav bar.
 - **Tightened Proportions**: Scaled down the container dimensions (from `22em` to `16em` wide) and reduced internal padding to `0.5rem` to eliminate excess white space around the SVG.
-- **Responsive Scaling**: Implemented `object-fit: contain` to ensure the logo remains sharp and centered across different screen sizes.
+- **Responsive Scaling**: Implemented `object-fit: contain` to ensure the logo remains sharp and centered.
+
+### Homepage Hero (`index.js`)
+
+- **Bio Staggering**: Replaced the vertical list of bio headers with a staggered "Zine-style" layout using Flexbox `align-self` and `transform: rotate`.
+- **Variable Accents**: Applied different editorial styles to each hierarchy level (e.g., high-contrast dark blocks for `h2`, heavy underlines for `h3`).
+- **Fluid Scaling**: Utilized `clamp()` for all homepage headers to maintain visual impact on tall displays (1400x1800).
+
+### Metadata Strip (`ContactBar.js`)
+
+- **Styling Reset**: Isolated `h5` elements within the `ContactBar` to prevent inheritance of "Editorial Bio" styles like rotations or backgrounds.
+- **Typographic Contrast**: Switched contact details to a bold `Courier New` monospace stack at `0.9rem` for a "technical metadata" look.
+- **Responsive Shelf**: Implemented a 1px border-bottom and a transition to a 1-column stack on mobile devices for tap-friendliness.
 
 ### Footer (`Footer.js`)
 
