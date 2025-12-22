@@ -6,10 +6,13 @@ import ThemeToggle from "./ThemeToggle"
 
 const NavStyles = styled.nav`
   position: relative;
-  margin-bottom: 3rem;
-  padding: 1rem;
-  overflow: hidden;
+  /* 1. Making the bar dark in light mode for contrast */
+  background: var(--dark);
+  padding: 2rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
+  /* 2. Adding the grit texture to the dark bar */
   &::before {
     content: "";
     position: absolute;
@@ -18,12 +21,14 @@ const NavStyles = styled.nav`
     width: 100%;
     height: 100%;
     filter: url(#grit);
-    opacity: 0.15;
+    opacity: 0.4; /* Slightly higher opacity to see it on the dark background */
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
   }
 
   ul {
+    position: relative;
+    z-index: 1; /* Keep text above the grit */
     display: grid;
     grid-template-columns: 1fr 1fr auto 1fr 1fr auto;
     grid-gap: 2rem;
@@ -38,16 +43,20 @@ const NavStyles = styled.nav`
     transition: transform 0.2s ease;
 
     .nav-text {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       display: block;
+      color: var(--lightGrey);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
+    /* 3. FIXING HIDE-ME: Making the 'x' visible and yellow */
     .hide-me {
       display: block;
-      visibility: hidden;
-      font-size: 1.2rem;
+      visibility: visible; /* Changed from hidden */
+      font-size: 1.5rem;
+      color: var(--yellow);
+      font-family: "Fuzzy Bubbles", cursive;
     }
 
     &:hover {
@@ -57,45 +66,32 @@ const NavStyles = styled.nav`
 
   .logo {
     transform: rotate(-2deg);
-    a {
-      text-decoration: none;
-    }
+    /* Ensure the logo is visible on dark. 
+       If your Logo is an image/SVG, you might need filter: invert(1); */
+    filter: brightness(0) invert(1);
   }
 
   a {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-family: "Fuzzy Bubbles", cursive;
     display: block;
     text-decoration: none;
-    color: var(--dark);
-    &:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--yellow);
-    }
+    /* 4. Using light text on the dark background */
+    color: var(--light);
 
-    @media (max-width: 850px) {
-      font-size: 1.8rem;
+    &:hover {
+      color: var(--yellow);
     }
   }
 
+  /* Responsive stacking */
   @media (max-width: 950px) {
     ul {
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
     }
     .logo {
       grid-column: 1 / -1;
       order: -1;
-    }
-  }
-
-  @media (max-width: 500px) {
-    li .nav-text,
-    li .hide-me {
-      display: none;
-    }
-    ul {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 `
