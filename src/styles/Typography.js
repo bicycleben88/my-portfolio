@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-
 import headerFont from "../assets/FuzzyBubbles-Regular.ttf"
 import font from "../assets/Nunito-Black.ttf"
 
@@ -12,48 +11,56 @@ const Typography = createGlobalStyle`
     font-family: 'Nunito';
     src: url(${font});
   }
+
   html {
-    font-family: 'Nunito'
-    color: var(--black);
+    font-family: 'Nunito', sans-serif;
+    color: var(--dark);
+    font-size: 10px; 
   }
+
+  h1 { font-size: 5rem; }
+  h2 { font-size: 4rem; }
+  h3 { font-size: 3rem; }
+  h4 { font-size: 2.5rem; }
+  h5 { font-size: 2rem; }
+  h6 { font-size: 1.8rem; }
+
   p, li {
     letter-spacing: 0.5px;
+    line-height: 1.77; 
+    font-size: 2rem;
   }
-  p {
-    line-height: 28px;
-  }
+
   h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
     margin: 0;
     font-family: 'Fuzzy Bubbles', cursive;
+    line-height: 1.2;
   }
+
   a {
-    color: var(--black);
-    text-decoration-color: var(--purple);
-    /* Chrome renders this weird with this font, so we turn it off */
+    color: var(--dark);
+    text-decoration-color: var(--yellow); 
     text-decoration-skip-ink: none;
+    transition: text-decoration-color 0.2s;
+    &:hover {
+      text-decoration-color: var(--dark);
+    }
   }
+
   mark, .mark {
-    background-color: var(--pink);
-    color: var(--grey);
-    padding: 2px 2px 0 2px;
+    background-color: var(--yellow);
+    color: var(--dark);
+    padding: 0 5px;
     margin: 0;
     display: inline;
-    line-height: 1;
+    filter: url(#grit); 
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
-  .sticker {
-    position: absolute;
-    right: -1rem;
-    background-color: var(--yellow);
-    transform: rotate(8deg);
-    padding: 2px 2px 0 2px;
-  }
-  .center {
-    text-align: center;
-  }
-  .tilt {
-    transform: rotate(-2deg);
-  }
+
+  .center { text-align: center; }
+  .tilt { transform: rotate(-2deg); }
 `
 
 export default Typography
