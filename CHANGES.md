@@ -68,6 +68,14 @@ This document summarizes the transition from the "Boxed Neon" layout to the "Wid
   - Added "Post-it" style labels: centered, tilted, and gritty.
   - Replaced the "shine" animation with a subtle "pulse" loading state.
 
+## Component Unification (`ProjectFilter.js`)
+
+- **Framed Container**: Wrapped technology filters in a high-contrast `var(--dark)` container to create a "self-contained unit" aesthetic.
+- **Typographic Alignment**:
+  - Names: Applied `Impact` with yellow underlines.
+  - Counts: Removed white backgrounds and applied `Courier New` monospace to signify metadata.
+- **Theming Consistency**: Replaced legacy `var(--pink)` active states with `var(--yellow)` to match the site's editorial color palette.
+
 ## 5. Technical Bug Fixes
 
 - **Filter disappearing act**: Resolved by moving filters from main containers to empty pseudo-elements and defining explicit SVG filter regions.

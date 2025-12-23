@@ -5,24 +5,55 @@ import styled from "styled-components"
 const TechStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 4rem;
+  background: #000;
+  padding: 1rem;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+
   a {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 1rem;
+    display: flex;
     align-items: center;
-    border-radius: 2px;
-    padding: 0.5rem;
-    background: var(--grey);
-    font-size: 2rem;
-    font-size: clamp(12px, 2rem, 25px);
-    .count {
-      background: white;
-      padding: 2px 5px;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-family: Impact, sans-serif;
+    font-size: 1.6rem;
+    transition: all 0.2s ease;
+
+    .name {
+      border-bottom: 3px solid var(--yellow);
     }
+
+    .count {
+      background: none;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0;
+      color: #444;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      background: var(--yellow);
+    }
+
     &[aria-current="page"] {
-      background: var(--pink);
+      background: var(--yellow);
+      .count {
+        color: #000;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+    a {
+      font-size: 1.2rem;
     }
   }
 `
