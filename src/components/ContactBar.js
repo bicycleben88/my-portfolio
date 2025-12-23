@@ -8,25 +8,21 @@ const ContactBarStyles = styled.div`
   grid-template-columns: repeat(var(--columns), 1fr);
   gap: 1.5rem;
   padding: 1rem 0;
-  /* Thin editorial line to separate the bar from the bio */
   border-bottom: 1px solid var(--lightGrey);
   margin-bottom: 2rem;
 
   h5 {
-    /* Resetting inherited editorial 'bio' styles */
     background: none;
     padding: 0;
     margin: 0;
     transform: none;
-
-    /* Applying 'Metadata' aesthetic */
     font-family: "Courier New", Courier, monospace;
     font-size: 0.9rem;
     color: var(--dark);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    white-space: nowrap; /* Keeps info on one line */
+    white-space: nowrap;
   }
 
   a {
@@ -47,7 +43,7 @@ const ContactBarStyles = styled.div`
   }
 
   @media (max-width: 500px) {
-    --columns: 1; /* Stack fully on small phones for readability */
+    --columns: 1;
     padding: 0.5rem;
 
     .phone,
