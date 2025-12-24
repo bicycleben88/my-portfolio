@@ -11,7 +11,7 @@ const ContactBarStyles = styled.div`
   border-bottom: 1px solid var(--lightGrey);
   margin-bottom: 2rem;
 
-  h5 {
+  && h5 {
     background: none;
     padding: 0;
     margin: 0;

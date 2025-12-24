@@ -80,3 +80,7 @@ This document summarizes the transition from the "Boxed Neon" layout to the "Wid
 
 - **Filter disappearing act**: Resolved by moving filters from main containers to empty pseudo-elements and defining explicit SVG filter regions.
 - **Responsive Cropping**: Fixed by switching background anchoring from `top` to `center`.
+
+- **Cache Management**: Identified a Gatsby caching bug where `ContactBar.js` styles would revert on restart. Implemented `gatsby clean` workflow to ensure fresh CSS builds.
+
+- **CSS Specificity**: Applied `&&` nesting in `ContactBar.js` to ensure the monospace font stack successfully overrides the global `h5` Impact font defined in `Typography.js`.
