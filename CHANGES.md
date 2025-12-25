@@ -76,6 +76,13 @@ This document summarizes the transition from the "Boxed Neon" layout to the "Wid
   - Counts: Removed white backgrounds and applied `Courier New` monospace to signify metadata.
 - **Theming Consistency**: Replaced legacy `var(--pink)` active states with `var(--yellow)` to match the site's editorial color palette.
 
+## Project Template Refactor (`Project.js`)
+
+- **Editorial Layout**: Transitioned from a generic grid to a two-column "Spec Sheet" layout.
+- **Viewport Constraints**: Implemented `max-height: 70vh` on project images to ensure consistent framing and prevent overflow on tall laptop screens.
+- **Tactile CTAs**: Reimagined the "Live Site" link as a massive, gritty yellow sticker with high-contrast drop shadows and rotation.
+- **Metadata Block**: Styled the technology list as a "Technical Specs" section using monospace typography and dark backgrounds to contrast with the fluid body text.
+
 ## 5. Technical Bug Fixes
 
 - **Filter disappearing act**: Resolved by moving filters from main containers to empty pseudo-elements and defining explicit SVG filter regions.

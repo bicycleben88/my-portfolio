@@ -38,33 +38,29 @@ export default function Layout({ children }) {
         <Footer />
       </SiteWrapper>
       <svg
-        style={{
-          position: "absolute",
-          height: 0,
-          width: 0,
-          overflow: "hidden",
-          pointerEvents: "none",
-        }}
-        aria-hidden="true"
+        style={{ visibility: "hidden", position: "absolute" }}
+        width="0"
+        height="0"
       >
         <filter
           id="grit"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%"
+          x="-20%"
+          y="-20%"
+          width="140%"
+          height="140%"
           filterUnits="objectBoundingBox"
         >
           <feTurbulence
             type="fractalNoise"
             baseFrequency="0.8"
-            numOctaves="4"
-            stitchTiles="stitch"
+            numOctaves="3"
+            result="noise"
           />
-          <feColorMatrix type="saturate" values="0" />
-          <feComponentTransfer>
-            <feFuncA type="table" tableValues="0 0.25" />
-          </feComponentTransfer>
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"
+          />
+          <feComposite operator="in" in2="SourceGraphic" />
         </filter>
       </svg>
     </>
