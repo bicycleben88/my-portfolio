@@ -9,12 +9,75 @@ import styled from "styled-components"
 import ContactBar from "../components/ContactBar"
 
 const HomePageStyles = styled.div`
-  h1 {
-    margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 2rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Impact, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
   }
+
+  h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    align-self: flex-start;
+    transform: rotate(-1deg);
+    background: var(--dark);
+    color: var(--yellow);
+    padding: 0.5rem 1rem;
+    margin-left: 5%;
+  }
+
+  h3 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    align-self: flex-end;
+    margin-right: 10%;
+    transform: rotate(1deg);
+    color: var(--dark);
+    border-bottom: 6px solid var(--yellow);
+  }
+
+  h4 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    align-self: center;
+    transform: translateX(-20px) rotate(-2deg);
+    opacity: 0.8;
+  }
+
+  h5 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    align-self: flex-start;
+    margin-left: 15%;
+    font-family: "Courier New", Courier, monospace;
+    background: var(--yellow);
+    color: var(--dark);
+    padding: 0.2rem 0.5rem;
+  }
+
   @media (max-width: 850px) {
-    h1 {
-      font-size: 3rem;
+    gap: 1.5rem;
+    h2,
+    h3,
+    h4,
+    h5 {
+      align-self: center;
+      margin: 0;
+      transform: none;
+      text-align: center;
     }
   }
 `
@@ -70,29 +133,10 @@ export default function HomePage() {
       <HomePageStyles>
         <ContactBar />
         <h1 className="center">Ben Higginbotham</h1>
-        <p>
-          I’m an ex-bartender and current average cyclist who put down cocktails
-          and picked up computers. A bootcamp taught me front-end web
-          development in 2020, when I mastered HTML, CSS, and JavaScript. I know
-          React and Gatsby, the fancy frameworks and libraries used to make this
-          slick site.{" "}
-          <a href="https://www.prestonmitchum.com" target="#">
-            Here's a recent build of mine.
-          </a>{" "}
-          In 2022 I took a role providing application support for core banking
-          software distributed to 100+ credit unions and 25 SaaS clients. It’s
-          as interesting as it sounds. In 2024 I went back to school to study
-          Computer Science and I’m happy to report that so far that’s going
-          really well. Will I beat AI to a job before I graduate? .
-        </p>
-        <p>
-          You can <Link to="/projects">see all of my projects</Link>, where I
-          have both full stack and single page, front-end web applications.
-          There are <Link to="/builds">mini builds here</Link>, where I use
-          vanilla JavaScript to create really neat front-end features. Don't
-          forget <Link to="/bikes">to look at some pictures</Link> of a cross
-          country bicycle trip I took. Below is a little sample of my work.
-        </p>
+        <h2>Current Tech Support Rep</h2>
+        <h3>Ex Bartender</h3>
+        <h4>Average Cyclist</h4>
+        <h5>Never GQ Model</h5>
       </HomePageStyles>
       <HomeGridStyles>
         <HomeProjects projects={homeProjects} />
