@@ -1,43 +1,27 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
-import SEO from "../components/SEO"
+import ReactMarkdown from "react-markdown"
 
-const BlogStyles = styled.div`
-  overflow: auto;
-  h2 {
-    text-align: center;
-  }
-  pre {
-    background-color: black;
-    color: white;
-    padding: 0.5rem;
-    font-size: 0.75em;
-    overflow: auto;
-  }
-`
+const BlogPost = ({ data }) => {
+  const post = data.sanityPost
 
-export default function Blog({ data }) {
-  const { blog } = data
   return (
-    <>
-      <SEO title={blog.frontmatter.title} />
-      <BlogStyles>
-        <h2>{blog.frontmatter.title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: blog.html }} />
-      </BlogStyles>
-    </>
+    <article>
+      <h1>{post.title}</h1>
+      {/* <p>Published on: {post.publishedAt}</p> */}
+      <ReactMarkdown>{post.content}</ReactMarkdown>
+    </article>
   )
 }
 
 export const query = graphql`
-  query BlogQuery($slug: String!) {
-    blog: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date
-      }
+  query($id: String!) {
+    sanityPost(id: { eq: $id }) {
+      title
+      # publishedAt(formatString: "MMMM DD, YYYY") # Uncommented and formatted
+      content
     }
   }
 `
+
+export default BlogPost

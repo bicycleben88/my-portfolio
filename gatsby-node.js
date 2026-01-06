@@ -128,26 +128,27 @@ async function turnBuildsIntoPages({ graphql, actions }) {
 }
 
 async function turnBlogsIntoPages({ graphql, actions }) {
+  const blogTemplate = path.resolve("./src/templates/Blog.js")
   const { data } = await graphql(`
     query {
-      blogs: allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+      blogs: allSanityPost {
+        nodes {
+          id
+          slug {
+            current
           }
         }
       }
     }
   `)
+  data.blogs.nodes.forEach(blog => {
+    if (!blog.slug) return
 
-  data.blogs.edges.forEach(blog => {
     actions.createPage({
-      path: blog.node.fields.slug,
-      component: path.resolve("./src/templates/Blog.js"),
+      path: `/blog/${blog.slug.current}`,
+      component: blogTemplate,
       context: {
-        slug: blog.node.fields.slug,
+        id: blog.id,
       },
     })
   })
