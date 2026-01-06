@@ -32,10 +32,10 @@ const BlogListStyles = styled.div`
 function SingleBlog({ blog }) {
   return (
     <SingleBlogStyles>
-      <Link to={blog.fields.slug}>
-        <h2>{blog.frontmatter.title}</h2>
+      <Link to={`/blog/${blog.slug.current}`}>
+        <h2>{blog.title}</h2>
       </Link>
-      <p>{blog.frontmatter.about}</p>
+      <p>{blog.excerpt || "Read more..."}</p>
     </SingleBlogStyles>
   )
 }

@@ -18,18 +18,16 @@ export default function BlogPage({ data }) {
 
 export const pageQuery = graphql`
   query GetBlogsQuery {
-    blogs: allMarkdownRemark {
+    blogs: allSanityPost {
+      # Changed from allMarkdownRemark
       nodes {
-        frontmatter {
-          date
-          title
-          about
-        }
-        fields {
-          slug
-        }
-        excerpt
+        title # Sanity field
         id
+        slug {
+          current # Sanity's slug structure
+        }
+        # If you have an 'about' or 'excerpt' field in Sanity, add it here:
+        # excerpt
       }
     }
   }
