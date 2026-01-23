@@ -127,33 +127,6 @@ async function turnBuildsIntoPages({ graphql, actions }) {
   )
 }
 
-async function turnBlogsIntoPages({ graphql, actions }) {
-  const blogTemplate = path.resolve("./src/templates/Blog.js")
-  const { data } = await graphql(`
-    query {
-      blogs: allSanityPost {
-        nodes {
-          id
-          slug {
-            current
-          }
-        }
-      }
-    }
-  `)
-  data.blogs.nodes.forEach(blog => {
-    if (!blog.slug) return
-
-    actions.createPage({
-      path: `/blog/${blog.slug.current}`,
-      component: blogTemplate,
-      context: {
-        id: blog.id,
-      },
-    })
-  })
-}
-
 async function fetchSimpsonsEpisodesAndTurnIntoNodes({
   actions,
   createNodeId,
@@ -203,6 +176,5 @@ exports.createPages = async params => {
     turnTechnologiesIntoPages(params),
     turnBikePicsIntoPages(params),
     turnBuildsIntoPages(params),
-    turnBlogsIntoPages(params),
   ])
 }
